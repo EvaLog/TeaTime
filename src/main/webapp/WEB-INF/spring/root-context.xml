@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+		<!-- DataSource 생성 -->
+		<!-- JDBC 연결 방법 -->
+<!-- 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" p:driverClassName="org.mariadb.jdbc.Driver" p:url="jdbc:mysql://host():3306/databasename" p:username="" p:password=""/> -->
+		<!-- JNDI 연결 2가지 방법 -->
+<!-- 	<jee:jndi-lookup id="dataSource" jndi-name="jdbc/name" expected-type="javax.sql.DataSource"/> -->
+	<bean id="dataSource" 
+		  class="org.springframework.jndi.JndiObjectFactoryBean" 
+		  p:jndiName="java:/comp/env/jdbc/teatime" 
+		  p:resourceRef="true"/>
+
+		<!-- SqlSessionFactory 생성 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" p:dataSource-ref="dataSource" p:mapperLocations="classpath:/sql/*.xml" p:typeAliasesPackage="com.java.web.bean"/>
+
+		<!-- SqlSession 생성 -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" c:sqlSessionFactory-ref="sqlSessionFactory"/>
+	
+		<!-- FileUpLoad 용량 설정 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="10485760"/>
+		<property name="maxInMemorySize" value="104857600"/>
+	</bean>
+</beans>
