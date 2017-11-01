@@ -44,6 +44,9 @@ public class HomeController {
 		return "home";
 	}
 	
+	@Autowired
+	TestServiceInterface tsi;
+	
 	@RequestMapping(value = "/JSON", method = RequestMethod.GET)
 	public void home(HttpServletRequest req, HttpServletResponse resp) {
 		// 파라메터 값 받아서 map으로 변경하기.
@@ -51,14 +54,13 @@ public class HomeController {
 		// 결과값을 JSON으로 출력하기.
 		HttpUtil.sendResponceToJson(resp, param);
 	}
-	@Autowired
-	TestServiceInterface tsi;
+
 	
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/Login", method = RequestMethod.GET)
 	public void test(HttpServletResponse resp) {
 		// 파라메터 값 받아서 map으로 변경하기.
 		HashMap<String, Object> result = tsi.test();
 		// 결과값을 JSON으로 출력하기.
 		HttpUtil.sendResponceToJson(resp, result);
-	}
+	}*/
 }

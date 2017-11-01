@@ -15,8 +15,7 @@ public class TestController {
 	
 	@RequestMapping("/test")
 	public ModelAndView test(ModelAndView mav){
-		mav.setViewName("test");
-		mav.addObject("data", tsi.test());
+		mav.setViewName("json");
 		return mav;
 	}
 }

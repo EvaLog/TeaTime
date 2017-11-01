@@ -1,6 +1,7 @@
 package kr.gudi.teatime.dao;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -12,10 +13,48 @@ public class TestDao implements TestDaoInterface {
 
 	@Resource(name="sqlSession")
 	SqlSession session;
-	
+
+
 	@Override
-	public HashMap<String, Object> test() {
-		return session.selectOne("sql.test");
+	public int signin(HashMap<String, Object> param) {
+		return session.insert("sql.signin", param);
 	}
 
+	@Override
+	public HashMap<String, Object> loginCheck(HashMap<String, Object> param) {
+		return session.selectOne("sql.login", param);
+	}
+	
+	@Override
+	public HashMap<String, Object> loginSearch(HashMap<String, Object> param) {
+		return session.selectOne("sql.loginSearch", param);
+	}
+	
+	@Override
+	public HashMap<String, Object> PwSearch(HashMap<String, Object> param) {
+		return session.selectOne("sql.PwSearch", param);
+	}
+
+	@Override
+	public List<HashMap<String, Object>> teaselect(HashMap<String, Object> param) {
+		return session.selectList("sql.teaselect", param);
+	}
+	
+	public List<HashMap<String, Object>> notice() {
+		return session.selectList("sql.notice");
+	}
+
+	@Override
+	public HashMap<String, Object> totCnt() {
+		return session.selectOne("sql.tot");
+	}
+	
+	public int commentin(HashMap<String, Object> param) {
+		return session.insert("sql.commentin", param);
+	}
+
+/*	@Override
+	public int PwUpdate(HashMap<String, Object> param) {
+		return session.update("sql.PwUpdate", param);
+	}*/ //비밀번호 초기화용
 }
