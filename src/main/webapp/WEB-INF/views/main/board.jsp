@@ -32,18 +32,18 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+
 <script>
-
-
 
 $(document).ready(function(){
     $("#mainMB").hide();
     $("button").click(function(){
-        
          $("#mainMB").fadeToggle(); 
         });
    
-   
+    
+    
+    
     var dataSource = []; //데이터 담을 배열 변수 선언
     var comments = [];
 	var page = 1; //현재 페이지 값
@@ -66,7 +66,6 @@ $(document).ready(function(){
 						+"<input type='hidden' name='criticname' value='"+$(".idtext").text()+"'>"
 						+"<button type='button' class='close' data-dismiss='modal'>&times;</button>"
 						+"<h4 class='modal-title'>"+dataSource[i].no+"."+dataSource[i].teaname+"</h4>"
-						
 						+"</div>"
 						+"<div class='modal-body'>"
 						+"<p>설명: "+dataSource[i].teadesc+" </p>"
@@ -91,10 +90,17 @@ $(document).ready(function(){
 			);
 		}
 		
+		
+		
+		
 		$( ".boardcell" ).on( "click", function( event ) {
+			
+		  
+			
 		  event.preventDefault();
 		  var index = $( ".boardcell" ).index(this);
 		  var no = $(".tea_no").eq(index).val();
+		  
 		   $.ajax({
 			  url:"boardComment", 
 			  type:"get", 
@@ -209,6 +215,17 @@ $(document).ready(function(){
 	 
 
 });
+</script>
+<%
+      String id = (String)session.getAttribute("id"); 
+%>
+<script type="text/javascript">
+if(<%=id%> != null){
+	
+} else {
+	alert("로그인이 필요합니다.");
+	location.href = "/teatime";
+}
 </script>
 <style>
 
@@ -366,10 +383,11 @@ $(document).ready(function(){
             margin: 0;
         }
     </style>    
-    <%
-    	String id = (String)session.getAttribute("id");
-    %>
+    
     </head>
+
+
+
 <body>
     <div class="col-md-2">
     <div id="main">

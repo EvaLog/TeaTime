@@ -4,69 +4,73 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <style>
-    body{
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
     
-    }
+	
+	
+	 <script src="https://code.jquery.com/jquery-2.2.1.min.js" >
+    
+    $('#myCollapsible').collapse({
+  toggle: false
+})
+</script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script>
+      $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 880) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+    </script>
+	  <style>
+		html{
+			width: 100%;
+			height: 100%;
+		}
+		
+    body{
+			width: 1000px;
+			height: 640px;
+			font-family: '돋움';
+	        background-image: url(p.jpg);
+         	overflow: hidden;
+     }
         #full{
-               position: absolute;
+           
             width: 1000px;
-            height: 640px;
-            background-color: white;
+            height: 700px;
             padding: 0;
             margin: 0;
         }
-         img{
-            position: relative;
-           width: 80px;
-            height: 100px;
-            left: 450px;
-            top: 10px
-        }
+      
         
-        #id{
-            position:relative;
-            margin-top: 95px;
-            margin-bottom: 20px;
-            text-align: center;
-            right: 300px;
-        }
+       
         
-         #pwd{
-           position:relative;
-             margin-top: 10px;
-            text-align: center;
-             right: 285px;
-        }
-        h2{
-            font-size: 2rem;
-        }
         
         input{
-            position: relative;
+            
             background-color: #dbbfbf;
-            margin-left: 50px;
+           
             height: 42px;
             width: 350px;
             border-radius: 7px;
-            left: 270px;
-            bottom: 137px;
-            margin-bottom: 21px;
+            margin-left: 40px;
+         
+           
         }
         
          .btn{
-            position: relative;
-            left: 450px;
-            text-decoration: none;
-            border-radius: 7px;
-             margin-top: 20px;
-             display: inline-block;
-            font-family: 'Indie Flower', cursive;
-              font-size: 1.5rem;
-              text-align: center;
-             color: aliceblue;
-             bottom: 130px;
-              
+            
         }
            .btn.color {
           background-color: #8e1111;
@@ -74,47 +78,143 @@
          height: 32px;
         }
                hr{
-                   position: relative;
+                  
                 bottom: 100px
                }
-        a{
-            position: relative;
-            text-align: center;
-            color: gray;
-            text-decoration: none;
-            margin-right: 50px;
-            bottom: 90px;
-            left: 320px;
-            
+       
+			#footer {
+        background-color: firebrick;
+		height: 100px;
+        width: 100vw;
+        text-align: center;
+        
+		}
+        
+        #footer img{
+            width: 300px;
+            height: 300px;
+        } 
+		
+	
+		
+       
+        #sgin{
+            margin-top: 50px;
         }
+        .col-md-12{
+          
+            margin: 0px;
+            padding: 0px;
+            width: 100vw;
+        }
+        .dropup{
+            margin-top: 35px;
+        }
+		
         </style>
 </head>
 <body>
-
+<div class="container-fluid">
+        <div class="row">
     <div id="full">
     <form action="Login" method="post">
-         <img src="logo.jpg">
+           <div class="col-md-12" style="margin-bottom: 10%;margin-top: 10%;padding-left: 10%">
+      <div class="col-md-1"></div>
+           <div class="col-md-1"></div>
+           <div class="col-md-1"></div>
+           <div class="col-md-1"></div>
+       <div class="col-md-7">
+       <a href="%EA%B3%B5%EC%B0%A8%20%EB%A9%94%EC%9D%B8%ED%99%94%EB%A9%B4.html"> <img id="logo" src="resources/image/logo.png" style="float: right;margin-right: 35%"></a>
+          </div>
+    </div>
         
-              <div id="id"><h2>아이디</h2></div>
-        
-             <div id="pwd"><h2>비밀번호</h2></div>
-      		<div>
-        	<input type="text" name="id">
-       		</div>
-        	<div>
-    		<input type="password" name="pw">
-    		</div>
-		<div id="but">
-            <input type="submit" value="로그인">
+             <div class="col-md-12">
+             <p style="float: right;margin-right: 35%;margin-bottom: 50px;">아이디
+                 <input type="text" name="id" placeholder="아이디" ></p>
+              </div>
+        <div>
+             <div class="col-md-12">
+             <p style="float: right;margin-right: 35%">비밀번호<input type="password" name="pw" placeholder="비밀번호" ></p>
+            </div>
+    </div>
+      		
+		<div id="but" class="col-md-12" >
+            <input type="submit" value="로그인" style="float: right;margin-right: 35%">
     	</div>
-    	<a href="resources/html/gong-cha.html"><input type="button" value="돌아가기"></a>
+    	<div id="but" class="col-md-12">
+    	<a href="resources/html/gong-cha.html">
+    	<input type="button" value="돌아가기" style="float: right;margin-right: 35%">
+    	</a>
+    	</div>
     </form>
         <hr>
-        <div>
+       <div class="col-md-12" style="margin-bottom: 10px;">
+           <div class="col-md-1"></div>
+            
+             <div class="col-md-1"></div>
+             <div class="col-md-1"></div>
+             <div class="col-md-1"></div>
             <a href="Signin">회원가입</a>
             <a href="LoginCheck">아이디 찾기</a>
             <a href="PwCheck">비밀번호 찾기</a>
     </div>
+    <div id="footer" class="col-md-12">
+	<div class="col-md-1"></div>
+    
+      <div class="col-md-1"></div>
+      <div class="col-md-1"></div>
+      <div class="col-md-1"></div>
+<div class="dropup col-md-1">
+  <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
+    이근형
+    <span></span>
+  </a>
+
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+ <img src="image/KakaoTalk_20171030_115358271.jpg">
+  </ul>
+</div>
+			<div class="dropup col-md-1">
+  <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
+    유준선
+    <span></span>
+  </a>
+
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+ <img src="image/KakaoTalk_20171030_115519991.jpg">
+  </ul>
+</div>
+<div class="dropup col-md-1">
+  <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
+    황근욱
+    <span></span>
+  </a>
+
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+ <img src="image/ddddd.jpg">
+  </ul>
+</div>
+			<div class="dropup col-md-1">
+  <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
+    허대철
+    <span></span>
+  </a>
+
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+ <img src="image/KakaoTalk_20171030_115456278.jpg">
+  </ul>
+</div>
+<div class="col-md-1"></div>	
+			
+			
+			
+
+
+    </div>
+			
         </div>
+        </div>
+        </div>
+        
 </body>
 </html>

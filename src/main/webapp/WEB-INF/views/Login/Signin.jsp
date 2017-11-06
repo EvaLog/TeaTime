@@ -4,80 +4,63 @@
     <title>모바일</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head>
+	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    
+	
+	
+	 <script src="https://code.jquery.com/jquery-2.2.1.min.js" >
+    
+    $('#myCollapsible').collapse({
+  toggle: false
+})
+</script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script>
+   
+    </script>
+	
     <style>
+		html{
+			width: 1000px;
+			height: 700px;
+		}
+		
+		
         body{
+			width: 1000px;
+			height: 640px;
+			font-family: '돋움';
+	        background-image: url(p.jpg);
+             overflow: hidden;
      }
-        #full{
-            
-            position: absolute;
-            width: 1000px;
-            height: 640px;
-            background-color: white;
-            padding: 0;
-            margin: 0;
-        }
-        img{
-            position: relative;
-           width: 80px;
-            height: 100px;
-            left: 450px;
-            top: 10px
-        }
+       
+       
+		
         
-        p1{
-           font-size: 2rem
-        }
        
         input{
             width: 400px;
             height: 40px;
             border-radius: 8px;
             margin-left: 40px;
-        }
-        #id{
-            position: relative;
-            left: 230px;
-        }
-        #ps{
-            position: relative;
-            left: 214px;
-        }
-          #psc{
-            position: relative;
-            left: 277px;
-            margin: 0px;
-        }
-        p2{
-            position: relative;
-            right: 525px
-        }
-        #name{
-            position: relative;
-            left : 238px;
-        }
-         #phone{
-            position: relative;
-            left : 212px;
-        
-          
-        }
-        #call{
-            position: relative;
-            margin: 0px;
-            left: 450px;
-            bottom: 45px;
+			
         }
         
-        #number{
-            position: relative;
-            left: 275px;
-            bottom: 20px;
-        }
-          #e{
-            position: relative;
-            left: 227px;
-            bottom: 19px;
-        }
+       
+        
+		
+		
+		
+        
+      
+        
+    
         strong {
             text-decoration: none;
         }
@@ -99,54 +82,165 @@
           background-color: #8e1111;
          width: 80px;
          height: 32px;
+		}
+			
+		#id input{
+			background-color: rgba(217, 213, 213, 0.34);
+		}
+		#ps input{
+			background-color: rgba(217, 213, 213, 0.34);
+		}
+		#psc input{
+			background-color: rgba(217, 213, 213, 0.34);
+		}
+		#name input{
+			background-color: rgba(217, 213, 213, 0.34);
+		}
+		#phone input{
+			background-color: rgba(217, 213, 213, 0.34);
+		}
+		#number input{
+			background-color: rgba(217, 213, 213, 0.34);
+		}
+		#e input{
+			background-color: rgba(217, 213, 213, 0.34);
+		}
+		#footer {
+        background-color: firebrick;
+		height: 100px;
+        width: 100vw;
+        text-align: center;
+        
+		}
+        
+        #footer img{
+            width: 300px;
+            height: 300px;
+        } 
+		
+	
+		
+       
+        #sgin{
+            margin-top: 50px;
+        }
+        .col-md-12{
+           align-content: center;
+            margin: 0px;
+            padding: 0px;
+            width: 100vw;
+        }
+        .dropup{
+            margin-top: 35px;
+        }
+			
         </style>
  
 </head>
 <body>
+    <div class="container-fluid">
+        <div class="row">
 <form action="Success" method="post">
-    <div id="full">
-   
-    <img src="logo.jpg">
-          <p1>회원가입</p1>   
+    
+   <div class="col-md-12">
+       <div id="sgin" class="col-md-5"> <p1>회원가입</p1></div>
+       <div class="col-md-7">
+       <a href="%EA%B3%B5%EC%B0%A8%20%EB%A9%94%EC%9D%B8%ED%99%94%EB%A9%B4.html"> <img id="logo" src="image/logo.png"></a>
+          </div>
+    </div>
         <hr>
 
-      <div id="id">
-        <p>아이디<input type="text" name="id" placeholder="아이디"></p>
+      <div  class="col-md-12">
+        <p style="float: right;margin-right: 30%">아이디<input type="text" name="id" placeholder="아이디" ></p>
         
           </div>
-         <div id="ps">
-        <p>비밀번호<input type="password" name="pw" placeholder="비밀번호"></p>
+         <div  class="col-md-12">
+        <p style="float: right;margin-right: 30%">비밀번호<input type="password" name="pw" placeholder="비밀번호"></p>
         
           </div>
-        <div id="psc">
-      
-        <input type="password" placeholder="비밀번호 확인">
-              <p2>비밀번호 확인</p2>
+        <div  class="col-md-12">
+       <p style="float: right;margin-right: 30%">비밀번호 확인
+        <input type="password" placeholder="비밀번호 확인"></p>
+             
           </div>
         <hr>
-        <div id="name">
-        <p> 이름 <input type="text" name="name" placeholder="이름"></p>
+        <div  class="col-md-12">
+        <p style="float: right;margin-right: 30%"> 이름 <input type="text" name="name" placeholder="이름"></p>
      </div>
         
-      <div id="phone">
-        <p>휴대전화<input type="text" name="phone" placeholder="휴대전화번호"></p>
-      <div id="call"><a href = ""><strong>인증</strong></a></div>
+      <div  class="col-md-12">
+        <p style="float: right;margin-right: 30%">휴대전화<input type="text" name="phone" placeholder="휴대전화번호"></p>
+     
 
-     </div>
-         <div id="number">
-          <input type="text" placeholder="인증번호">
-     </div>
-        <div id="e">
-        <p>이메일<input type="text" name="email" placeholder="이메일"></p>
-     </div>
+     </div>         
+    <div  class="col-md-12">
+        <p style="float: right;margin-right: 30%">이메일<input type="text" name="email" placeholder="이메일"></p>
+    </div>
         <hr>
-        <div id="but">
-        	<input type="submit" value="가입">
+        <div  class="col-md-12">
+        	<input type="submit" value="가입" style="float: right;margin-right: 30%;margin-top: 5%;margin-bottom: 5%;">
             <!-- <a href="#" type="submit" class="btn color">가입</a> -->
         </div>
-        
+  <div id="footer" class="col-md-12">
+	<div class="col-md-1"></div>
+      <div class="col-md-1"></div>
+      <div class="col-md-1"></div>
+      <div class="col-md-1"></div>
+<div class="dropup col-md-1">
+  <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
+    이근형
+    <span></span>
+  </a>
+
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+ <img src="image/KakaoTalk_20171030_115358271.jpg">
+  </ul>
+</div>
+			<div class="dropup col-md-1">
+  <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
+    유준선
+    <span></span>
+  </a>
+
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+ <img src="image/KakaoTalk_20171030_115519991.jpg">
+  </ul>
+</div>
+<div class="dropup col-md-1">
+  <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
+    황근욱
+    <span></span>
+  </a>
+
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+ <img src="image/ddddd.jpg">
+  </ul>
+</div>
+			<div class="dropup col-md-1">
+  <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
+    허대철
+    <span></span>
+  </a>
+
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+ <img src="image/KakaoTalk_20171030_115456278.jpg">
+  </ul>
+</div>
+<div class="col-md-1"></div>	
+			
+			
+			
+
+
     </div>
-   </form>
+</form>
+	
+
+		
+		
+	
+        </div></div>
 </body>
 </html>    
+    
     

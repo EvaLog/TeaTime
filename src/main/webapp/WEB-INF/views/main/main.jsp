@@ -1,147 +1,287 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Main</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style type="text/css">
-  	nav {
-  		
-  	}
-  </style>
+<!doctype html>
+<html>
+     <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
+    <title>공차</title>
+
+    <!-- 부트스트랩 -->
+    
+
+    <!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
+    <!-- WARNING: Respond.js 는 당신이 file:// 을 통해 페이지를 볼 때는 동작하지 않습니다. -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+                  <!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<script src="https://code.jquery.com/jquery-2.2.1.min.js" ></script>
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="resources/js/bootstrap.js"></script>
 <script>
-	$(document).ready(function(){
-		$("li.dropdown").mouseover(function(){
-			$('.dropdown-toggle').dropdown("toggle");
-		});
-		
-		$("#img1").load("/teatime/resources/html/img1.html");
-		$("#img2").load("/teatime/resources/html/img2.html");
-		$("#img3").load("/teatime/resources/html/img3.html");
-		$("#img4").load("/teatime/resources/html/img4.html");
-		
-		$(".row div").on("click", function(){
-			window.open($(this).find("img").attr("src"));
-		});
-		
-		$("form").on("submit", function(event){
-			event.preventDefault();
-			$.ajax(
-					{
-						url:"Login", 
-					    data: $(this).serialize()
-					}
-				   ).done(function(result){
-				console.log(result);
-				
-				$("#LoginPop").modal("hide");
-				
-				if(result.stat){
-					alert(result.email + " 로그인 성공");
-				} else {
-					alert("입력한 [" + result.email + "]로 로그인 실패");
-				}
-			});
-		});
-	});
+   $(document).ready(function(){
+       $("#mainMB").hide();
+    $("button").click(function(){
+         $("#mainMB").fadeToggle(); 
+        });
+   });
+    
+         
 </script>
-</head>
+<style>
+        /* 매우 작은 기기들 (모바일폰, 768px 보다 작은) */
+/* 부트스트랩에서 이것은 기본이므로 미디어쿼리가 없습니다. */
+
+    body {
+        width: 100%;
+        height: 100%;
+        
+    }
+    
+/* 작은 기기들 (태블릿, 768px 이상) */
+    @media (min-width: 768px) {
+          #main {
+            width: 100%;
+            height: 100vh;
+            background-color: darkgray;
+            text-align: center;
+            }
+        #mainMB{
+                  display:none;
+              }
+     .menu {
+            
+            margin: 10%;
+            font-size: 15px;
+            
+            
+        }
+     .logo {
+            margin: 25%
+        }
+    #mainlogo{
+          margin: 15%;
+            margin-bottom:  10%;
+              
+          }
+        .col-md-2 {
+    width: 16.66666667%;
+        }   
+        .col-md-10 {
+    width: 83.33333333%;
+            float: right;
+        }
+    
+        
+    }
+/*제일 작은화면 폰 화면 */
+          @media(max-width:767px){
+              
+              #main{
+                  display:none;
+              }
+              #mainMB {
+                  width: 100%;
+                  height: 400px;
+              }
+              .carousel-inner img {
+        display: none;
+    }
+             
+              
+     }
+
+
+
+
+
+/* 큰 기기들 (큰 데스크탑, 1200px 이상) */
+@media (min-width: 1000px) { 
+          #main {
+            width: 100%;
+            height: 100vh;
+            background-color: darkgray;
+            text-align: center;
+            }
+        #mainMB{
+                  display:none;
+              }
+     .menu {
+            
+            margin: 10%;
+            font-size: 200%;
+            
+            
+        }
+     .logo {
+            margin: 25%
+        }
+    #mainlogo{
+          margin: 15%;
+            margin-bottom:  10%;
+              
+          }
+    body{
+        overflow: hidden;
+    }       
+ }
+          
+          
+          
+          
+        body {
+            margin: 0px;
+           padding: 0px;
+            height: 100vh;
+            width: 100vw;
+           
+        }
+    .col-md-2 {
+        display:inline-block;
+        
+    }
+       
+       
+        a {
+            text-decoration: none;
+        }
+        #photo {
+            margin: 0;
+            width: 86%;
+            height: 100vh;
+            float: right;
+        }
+    .col-md-10{
+        padding: 0px;
+       
+    }
+    .col-md-2{
+        padding: 0px;
+        
+    }
+    
+    
+      
+     
+    </style>
+		<%
+        	String id = (String)session.getAttribute("id"); 
+        %>
+    </head>
 <body>
-
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span> 
-      </button>
-      <a class="navbar-brand" href="#">Spring</a>
+<div class="container-fluid">
+    <div class="row">
+    <div class="col-md-2">
+    <div id="main">
+        <img id="mainlogo"src="http://gong-cha.co.kr/view/gongcha/images/common/logo.png">
+        
+        <%
+        	if (id != null){
+        		%>
+				<div class="menu"> <%=id%> </div>
+        		<div class="menu"><a href="/teatime/resources/jsp/logout.jsp"> 로그아웃 </a></div>
+        		<%
+        	} else {
+        		%><div class="menu"><a href="/teatime/Login"> 로그인 </a></div><%
+        	}
+        %>
+        <div class="menu"><a href="/teatime/Signin">회원가입</a></div>
+        <div class="menu"><a href="">Brand</a></div>
+        <div class="menu"><a href="">Menu</a></div>
+        <div class="menu"><a href="order.html">주문하기</a></div>
+        <div class="menu"><a href="">고객센터</a></div>
+        <div class="menu"><a href="">공지사항</a></div>
+        <%
+        	if (id != null){
+        		%>
+				<div class="menu"><a href="/teatime/board">인기공차</a></div>
+        		<%
+        	} 
+        %>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Main</a></li>
-         <li class="dropdown">
-         	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
-         	<span class="caret"></span></a>
-        	<ul class="dropdown-menu">
-        	   <li><a href="#">Page 1-1</a></li>
-        	   <li><a href="#">Page 1-2</a></li>
-        	   <li><a href="#">Page 1-3</a></li>
-        	</ul>
-      	</li>
-        <li><a href="#">Page 2</a></li> 
-        <li><a href="#">Page 3</a></li> 
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li data-toggle="modal" data-target="#signin"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li data-toggle="modal" data-target="#LoginPop"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
+    <div id="mainMB">
+   <button type="button" class="btn btn-info">menu</button>
+       
+            <img id="mainlogo"src="http://gong-cha.co.kr/view/gongcha/images/common/logo.png">
+            <%
+        	if (id != null){
+        		%>
+				<div class="menu"> <%=id%> </div>
+        		<div class="menu"><a href="/teatime/resources/jsp/logout.jsp"> 로그아웃 </a></div>
+        		<%
+        	} else {
+        		%><div class="menu"><a href="/teatime/Login"> 로그인 </a></div><%
+        	}
+        	%>
+            <div class="menu"><a href="/logout.jsp">회원가입</a></div>
+            <div class="menu"><a href="">Brand</a></div>
+            <div class="menu"><a href="">Menu</a></div>
+            <div class="menu"><a href="order.html">주문하기</a></div>
+            <div class="menu"><a href="">고객센터</a></div>
+            <div class="menu"><a href="">공지사항</a></div>
+            <%
+        	if (id != null){
+        		%>
+				<div class="menu"><a href="/teatime/board">인기공차</a></div>
+        		<%
+        	} 
+        	%>
+            
+       
     </div>
-  </div>
-</nav> 
+    </div>
+   <div class="col-md-10">
+    <!--내용 넣는부분-->
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+  </ol>
 
-<div class="container">
-  <div class="row">
-  	<div class="col-sm-6" id="img1"></div>
-  	<div class="col-sm-6" id="img2"></div>
-  	<div class="col-sm-6" id="img3"></div>
-  	<div class="col-sm-6" id="img4"></div>
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="resources/image/IMG_4051.JPG" >
+      
+    </div>
+    <div class="item">
+      <img src="resources/image/IMG_4054.JPG" >
+      
+    </div>
+      <div class="item">
+      <img src="resources/image/IMG_4075.JPG">
+      
+    </div>
+      <div class="item">
+      <img src="resources/image/IMG_9237.JPG">
+     
+    </div>
+    
   </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
-
- <!-- Modal -->
-  <div class="modal fade" id="LoginPop" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">로그인</h4>
-        </div>
-        <div class="modal-body">
-          <form>
-  			<div class="form-group">
-    			<label for="email">Email address:</label>
-    			<input type="email" class="form-control" id="email" name="email">
-  			</div>
-  			<div class="form-group">
-    				<label for="pwd">Password:</label>
-    				<input type="password" class="form-control" id="pwd" name="pwd">
-  			</div>
-  			<button type="submit" class="btn btn-default">login</button>
-		</form> 
-        </div>
-        <!-- <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div> -->
-      </div>
-     </div>
     </div>
-     <!-- Modal -->
-  <div class="modal fade" id="signin" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">로그인</h4>
         </div>
-        <div class="modal-body">
-         	<p>회원가입</p>
-        </div>
-        <!-- <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div> -->
-      </div>
-     </div>
-    </div>
-
-</body>
-</html> 
+</div>
+    </body>
+</html>

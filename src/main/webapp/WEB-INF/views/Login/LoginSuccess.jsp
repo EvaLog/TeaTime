@@ -10,7 +10,7 @@
 %>
 <script type="text/javascript">
 alert("<%=id%>님 환영합니다");
-location.href = "/teatime/Main";
+location.href = "/teatime";
 </script>
 </head>
 <body>

@@ -1,6 +1,5 @@
 package kr.gudi.teatime.controller;
 
-import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -136,6 +135,12 @@ public class MainController {
 		return mav;
 	}
 	
+	@RequestMapping("/Order")
+	public ModelAndView order(ModelAndView mav, HttpServletRequest req, HttpServletResponse resp){
+		mav.setViewName("main/order");
+		return mav;
+	}
+	
 	@RequestMapping("/boardInsert")
 	public void boardInsert(ModelAndView mav, HttpServletRequest req, HttpServletResponse resp){
 		HashMap<String, Object> param = HttpUtil.getParameterMap(req);
@@ -172,7 +177,7 @@ public class MainController {
 	
 	
 	
-	@RequestMapping("/Main")
+	@RequestMapping("/")
 	public ModelAndView main(ModelAndView mav, HttpServletRequest req, HttpServletResponse resp){
 		HashMap<String, Object> param = HttpUtil.getParameterMap(req);
 		HashMap<String, Object> map = new HashMap<String, Object>();
@@ -180,7 +185,7 @@ public class MainController {
 		map.put("logincheck", tsi.LoginCheck(param));
 		
 		HttpUtil.sendResponceToJson(resp, map);
-		mav.setViewName("gong-cha");
+		mav.setViewName("main/main");
 		return mav;
 	}
 	
