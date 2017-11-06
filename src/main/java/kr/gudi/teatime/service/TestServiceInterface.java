@@ -17,6 +17,8 @@ public interface TestServiceInterface {
 	public HashMap<String, Object> teaselect(HashMap<String, Object> param);
 
 	public HashMap<String, Object> notice();
+
+	public HashMap<String, Object> commentsel(HashMap<String, Object> param);
 	
 /*	public HashMap<String, Object> PwUpdate(HashMap<String, Object> param);*/ //비밀번호 초기화용
 }

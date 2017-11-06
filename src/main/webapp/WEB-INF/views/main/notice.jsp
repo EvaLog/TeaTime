@@ -66,11 +66,6 @@ $(document).ready(function(){
        %>
 </tbody>
  </table>
-
-
-		
-
-  		
 </center>
 </body>
 </html>

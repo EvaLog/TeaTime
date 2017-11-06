@@ -12,5 +12,6 @@ public interface TestDaoInterface {
 	public List<HashMap<String, Object>> teaselect(HashMap<String, Object> param);
 	public List<HashMap<String, Object>> notice();
 	public HashMap<String, Object> totCnt();
+	public List<HashMap<String, Object>> commentsel(HashMap<String, Object> param);
 	
 }

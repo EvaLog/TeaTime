@@ -71,6 +71,15 @@ public class TestService implements TestServiceInterface {
 		
 		return map;
 	}
+	
+	@Override
+	public HashMap<String, Object> commentsel(HashMap<String, Object> param) {
+		List<HashMap<String, Object>> list = tdi.commentsel(param);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("comment", list);
+		
+		return map;
+	}
 
 
 

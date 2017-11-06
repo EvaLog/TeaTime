@@ -40,6 +40,7 @@ public class TestDao implements TestDaoInterface {
 		return session.selectList("sql.teaselect", param);
 	}
 	
+	@Override
 	public List<HashMap<String, Object>> notice() {
 		return session.selectList("sql.notice");
 	}
@@ -49,9 +50,16 @@ public class TestDao implements TestDaoInterface {
 		return session.selectOne("sql.tot");
 	}
 	
+	@Override
 	public int commentin(HashMap<String, Object> param) {
 		return session.insert("sql.commentin", param);
 	}
+	
+	@Override
+	public List<HashMap<String, Object>> commentsel(HashMap<String, Object> param) {
+		return session.selectList("sql.commentsel", param);
+	}
+	
 
 /*	@Override
 	public int PwUpdate(HashMap<String, Object> param) {

@@ -1,3 +1,4 @@
+<%@page import="org.springframework.web.context.request.SessionScope"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.HashMap"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -34,6 +35,7 @@
 <script>
 
 
+
 $(document).ready(function(){
     $("#mainMB").hide();
     $("button").click(function(){
@@ -43,6 +45,7 @@ $(document).ready(function(){
    
    
     var dataSource = []; //데이터 담을 배열 변수 선언
+    var comments = [];
 	var page = 1; //현재 페이지 값
 	var viewrow = 9; // 화면에 보여질 행 갯수
 	var totCnt = 0; //데이터 전체 갯수
@@ -50,6 +53,7 @@ $(document).ready(function(){
 	function createHtml(){ // ul 태그 속에 li태그 넣기 위한 함수
 		$(".borderrow").empty(); // ul태그의 자식태그 초기화 필요
 		for(var i = 0; i < dataSource.length; i++){
+			
 			$(".borderrow").append(
 			"<div class='boardcell col-md-4' data-toggle='modal' data-target='#detail"+i+"'>"
 			+"<img src='"+ dataSource[i].teaimage+ "'><br>"
@@ -58,7 +62,8 @@ $(document).ready(function(){
 				+"<div class='modal-dialog'>"
 					+"<form> <div class='modal-content'>"
 						+"<div class='modal-header'>"
-						+"<input type='hidden' name='tea_no' value='"+dataSource[i].no+"'>"
+						+"<input type='hidden' class='tea_no' name='tea_no' value='"+dataSource[i].no+"'>"
+						+"<input type='hidden' name='criticname' value='"+$(".idtext").text()+"'>"
 						+"<button type='button' class='close' data-dismiss='modal'>&times;</button>"
 						+"<h4 class='modal-title'>"+dataSource[i].no+"."+dataSource[i].teaname+"</h4>"
 						
@@ -67,17 +72,17 @@ $(document).ready(function(){
 						+"<p>설명: "+dataSource[i].teadesc+" </p>"
 	        			+"<p>가격 : "+dataSource[i].teaprice+"원 </p>"
 	        			+"추천평 : <input type='text' name='comment'><br>"
-	        			+"<p>현재 별점 : </p>"
+	        			+"<div class='commentrate'></div>"
 	            		+"별점주기 :  "
 	            		+"★1 <input type='radio' name='rate' value=1>\n\n"
 	            		+"★2 <input type='radio' name='rate' value=2>\n\n"
 	            		+"★3 <input type='radio' name='rate' value=3>\n\n"
 	            		+"★4 <input type='radio' name='rate' value=4>\n\n"
 	            		+"★5 <input type='radio' name='rate' value=5>\n\n"
-	            		+"<p>다른 사용자 평가 :</p>"
+	            		+"<div class='commentshow'></div>"
 	       				+"</div>"
 	        			+"<div class='modal-footer'>"
-	        				+"<input type='submit' class='btn btn-default' value='평가하기'>"	
+	        				+"<input type='submit' class='loginchk btn btn-default' value='평가하기'>"	
 	        				+"<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>"
 	          			+"</div>"
 	          		 +"</div>< /form>"
@@ -86,22 +91,72 @@ $(document).ready(function(){
 			);
 		}
 		
-		$( "form" ).on( "submit", function( event ) {
+		$( ".boardcell" ).on( "click", function( event ) {
 		  event.preventDefault();
-		  console.log( $( this ).serialize() );
-		  
-		  $.ajax({
-			  url:"boardInsert", 
-			  type:"post", 
-			  data:$( this ).serialize()}).done(function(result){
-			 if(result.comment == 1){
-				 alert("평가완료!")
-			 }else{
-				 alert("입력이 잘 못 되었습니다.");
-			 }
-			 $(".modal").modal("hide");
-		  });
+		  var index = $( ".boardcell" ).index(this);
+		  var no = $(".tea_no").eq(index).val();
+		   $.ajax({
+			  url:"boardComment", 
+			  type:"get", 
+			  data:{"no":no}
+		   }).done(function(result){
+			   
+			   var max = result.comment.length-1;
+			   comments = result.comment[max];
+			   $(".commentshow").html("<p>추천인 : "+comments.criticname+"</p>"
+					   +"<p>추천평 :"+comments.comment+" </p>"
+					   );
+			   var rate=parseFloat(0);
+			   for(var i = 0; i<(result.comment.length); i++){
+				   rate = rate + result.comment[i].rate;
+			   } 
+			   
+			   rate = (rate/result.comment.length).toFixed(1);
+			   if (rate<=5.0 && rate>=4.5){
+				   $(".commentrate").html("<p>평점 :★★★★★ </p>");   
+			   } else if(rate<=4.4 && rate>=4.0) {
+				   $(".commentrate").html("<p>평점 :★★★★☆</p>");
+			   } else if(rate<=3.9 && rate>=3.5) {
+				   $(".commentrate").html("<p>평점 :★★★★</p>");
+			   } else if(rate<=3.5 && rate>=3.0) {
+				   $(".commentrate").html("<p>평점 :★★★☆</p>");
+			   } else if(rate<=2.9 && rate>=2.5) {
+				   $(".commentrate").html("<p>평점 :★★★</p>");
+			   } else if(rate<=2.5 && rate>=2.0) {
+				   $(".commentrate").html("<p>평점 :★★☆</p>");
+			   } else if(rate<=1.9 && rate>=1.5) {
+				   $(".commentrate").html("<p>평점 :★★</p>");
+			   } else if(rate<=1.5 && rate>=1.0) {
+				   $(".commentrate").html("<p>평점 :★☆</p>");
+			   } else if(rate<=0.9 && rate>=0.5) {
+				   $(".commentrate").html("<p>평점 :★</p>");
+			   } else if(rate<=0.5 && rate>=0) {
+				   $(".commentrate").html("<p>평점 :☆</p>");
+			   } else{
+				   $(".commentrate").html("-");
+			   }
+			   
+			   
+			   
+		  }); 
 		});
+		
+		$( "form" ).on( "submit", function( event ) {
+			  event.preventDefault();
+			 /*  console.log( $( this ).serialize() ); */
+			  
+			  $.ajax({
+				  url:"boardInsert", 
+				  type:"post", 
+				  data:$( this ).serialize()}).done(function(result){
+				 if(result.comment == 1){
+					 alert("평가완료!")
+				 }else{
+					 alert("입력이 잘못되었습니다.");
+				 }
+				 $(".modal").modal("hide");
+			  });
+			});
 		
 	}
 	function createPaging(){
@@ -139,7 +194,7 @@ $(document).ready(function(){
 			var result = JSON.parse(d); // 가져온 데이터를 JSON 형식으로 형변환하여 result 변수에 담기
 			dataSource = result.data // JSON으로 받은 데이터를 사용하기 위하여 전역변수인 data에 값으로 넣기
 			totCnt = result.totCnt.tot;
-			console.log(dataSource);
+			/* console.log(dataSource); */
 			
 			createHtml(); //화면에 표현하기 위하여 함수 호출
 			createPaging(); //페이지 링크 표현학 위한 함수 호출
@@ -311,12 +366,24 @@ $(document).ready(function(){
             margin: 0;
         }
     </style>    
+    <%
+    	String id = (String)session.getAttribute("id");
+    %>
     </head>
 <body>
     <div class="col-md-2">
     <div id="main">
         <img id="mainlogo"src="http://gong-cha.co.kr/view/gongcha/images/common/logo.png">
-        <div class="menu"><a href="">회원가입</a></div>
+        <%
+        	if (id != null){
+        		%>
+				<div class="menu idtext"> <%=id%> </div>
+        		<div class="menu"><a href="/teatime/resources/jsp/logout.jsp"> 로그아웃 </a></div>
+        		<%
+        	} else {
+        		%><div class="menu"><a href="/teatime/Login"> 로그인 </a></div><%
+        	}
+        %>
         <div class="menu"><a href="">Brand</a></div>
         <div class="menu"><a href="">Menu</a></div>
         <div class="menu"><a href="">Store</a></div>
@@ -328,7 +395,7 @@ $(document).ready(function(){
    <button type="button" class="btn btn-info">menu</button>
         <div id="mainMB">
             <img id="mainlogo"src="http://gong-cha.co.kr/view/gongcha/images/common/logo.png">
-            <div class="menu"><a href="">회원가입</a></div>
+            <div class="menu"><a href="">${id}</a></div>
             <div class="menu"><a href="">Brand</a></div>
             <div class="menu"><a href="">Menu</a></div>
             <div class="menu"><a href="">Store</a></div>

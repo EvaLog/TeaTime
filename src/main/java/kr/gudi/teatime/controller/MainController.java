@@ -19,6 +19,7 @@ import net.sf.json.JSONObject;
 import net.sf.json.JSONSerializer;
 
 @Controller
+@SessionAttributes("id")
 public class MainController {
 	
 	@Autowired
@@ -35,17 +36,11 @@ public class MainController {
 		HashMap<String, Object> param = HttpUtil.getParameterMap(req);
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("Login", tsi.LoginCheck(param));
-		
-		System.out.println(param);
-		
-		
 		HttpUtil.sendResponceToJson(resp, map);
-		
-		
-		
 		if(map.get("Login") == (null)){
 			mav.setViewName("Login/Login");
 		} else {
+			mav.addObject("id", tsi.LoginCheck(param).get("id"));
 			mav.setViewName("Login/LoginSuccess");
 		}
 		
@@ -149,6 +144,15 @@ public class MainController {
 		if(param.get("rate") != null){
 			map = tsi.commentin(param);
 		}
+		HttpUtil.sendResponceToJson(resp, map);
+	}
+	
+	@RequestMapping("/boardComment")
+	public void boardComment(ModelAndView mav, HttpServletRequest req, HttpServletResponse resp){
+		HashMap<String, Object> param = HttpUtil.getParameterMap(req);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		
+		map = tsi.commentsel(param);
 		HttpUtil.sendResponceToJson(resp, map);
 	}
 	

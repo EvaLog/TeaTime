@@ -3,7 +3,46 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="sql">
-	<select id="test" resultType="hashmap">
-		select '테스트' as data
+	<select id="login" parameterType="hashmap" resultType="hashmap">
+		select id, pw from profile where id=#{id} and pw=#{pw}
 	</select>
+	
+	<select id="loginSearch" parameterType="hashmap" resultType="hashmap">
+		select id from profile where email=#{email} and phone=#{phone}
+	</select>
+
+	<select id="PwSearch" parameterType="hashmap" resultType="hashmap">
+		select pw from profile where id=#{id} and email=#{email} and phone=#{phone}
+	</select>
+	
+	<insert id="signin" parameterType="hashmap">
+		insert into profile (name, id, pw, phone, email) values (#{name}, #{id}, #{pw}, #{phone}, #{email})
+	</insert>
+	
+	<select id="comment" resultType="hashmap">
+		select t.no, t.teaname, r.criticname, r.`comment` from tea as t inner join rate as r on (t.`no` = r.tea_no); 
+	</select>
+	
+	<insert id="commentin" parameterType="hashmap">
+		insert into rate (rate, tea_no, criticname, comment) values (#{rate}, #{tea_no}, #{criticname}, #{comment})
+	</insert>
+	
+	<select id="commentsel" resultType="hashmap">
+		select * from rate where tea_no = #{no}
+	</select>
+	
+	<select id="teaselect" parameterType="hashmap" resultType="hashmap">
+		select * FROM tea limit #{start}, #{viewrow}
+	</select>
+	
+	<select id="tot" resultType="hashmap">
+		select count(*) as tot from tea
+	</select>
+	
+	<select id="notice" resultType="hashmap">
+		select * from notice
+	</select>
+<!-- 	비밀번호 초기화용 <update id="PwUpdate" parameterType="hashmap">
+		update profile set pw=#{pw} where id=#{id}
+	</update> -->
 </mapper>
