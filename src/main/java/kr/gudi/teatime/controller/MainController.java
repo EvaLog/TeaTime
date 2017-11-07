@@ -1,6 +1,7 @@
 package kr.gudi.teatime.controller;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -154,9 +155,26 @@ public class MainController {
 	public void boardInsert(ModelAndView mav, HttpServletRequest req, HttpServletResponse resp){
 		HashMap<String, Object> param = HttpUtil.getParameterMap(req);
 		HashMap<String, Object> map = new HashMap<String, Object>();
+		HashMap<String, Object> rate = new HashMap<String, Object>();
+		HashMap<String, Object> update = new HashMap<String, Object>();
+		double newrate = 0;
+		List<HashMap<String, Object>> List;
 		
+		param.get("tea_no");
 		if(param.get("rate") != null){
 			map = tsi.commentin(param);
+			
+			rate.put("no", param.get("tea_no"));
+			
+			rate = tsi.commentsel(rate);
+			List = (java.util.List<HashMap<String, Object>>) rate.get("comment");
+			for(int i = 0; i<List.size(); i++){
+				newrate = newrate + (int)List.get(i).get("rate");
+			}
+			newrate = Math.round(newrate/List.size()*10)/10.0;
+			update.put("rate", newrate);
+			update.put("no", param.get("tea_no"));
+			update = tsi.rateUpdate(update);
 		}
 		HttpUtil.sendResponceToJson(resp, map);
 	}

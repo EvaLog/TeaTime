@@ -59,6 +59,13 @@ public class TestDao implements TestDaoInterface {
 	public List<HashMap<String, Object>> commentsel(HashMap<String, Object> param) {
 		return session.selectList("sql.commentsel", param);
 	}
+
+	@Override
+	public List<HashMap<String, Object>> rateUpdate(HashMap<String, Object> param) {
+		return session.selectList("sql.rateUpdate", param);
+	}
+
+
 	
 
 /*	@Override
