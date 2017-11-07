@@ -249,11 +249,19 @@
         });
      var order1 = ""
      var topprice = 0;
+     
      $(".purchase").click(function(){
     	 $(".step1").hide();
          $(".step2").hide();
          $(".step3").hide();
          $(".step4").show();
+         $(".purchasedetail").html(
+     			"<p><h3>음료</h3> <h4> "  + order[0] + "</h4>  </p>" 
+     			+ "<p><h3>토핑</h3> <h4> "  + order1 + "</h4></p>"
+     			+ "<p><h3>당도</h3> <h4> "  + order[2] + " %</h4></p>"
+     			+ "<p><h3>얼음</h3> <h4> "  + order[3] + "</h4></p>"
+     			 + "<p><h3>가격</h3> <h4> " + price + "원 + (" + topprice + "원)</h4> </p>"
+              );
          $(".progress1").hide();
          $(".progress1s").hide();
          $(".progress2").hide();
