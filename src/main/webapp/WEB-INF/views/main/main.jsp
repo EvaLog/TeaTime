@@ -181,7 +181,7 @@
     <div class="row">
     <div class="col-md-2">
     <div id="main">
-        <img id="mainlogo"src="http://gong-cha.co.kr/view/gongcha/images/common/logo.png">
+        <a herf="/"><img id="mainlogo" src="http://gong-cha.co.kr/view/gongcha/images/common/logo.png"></a>
         
         <%
         	if (id != null){
@@ -190,15 +190,14 @@
         		<div class="menu"><a href="/teatime/resources/jsp/logout.jsp"> 로그아웃 </a></div>
         		<%
         	} else {
-        		%><div class="menu"><a href="/teatime/Login"> 로그인 </a></div><%
+        		%><div class="menu"><a href="/teatime/Login" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;"> 로그인 </a></div><%
         	}
         %>
-        <div class="menu"><a href="/teatime/Signin">회원가입</a></div>
-        <div class="menu"><a href="">Brand</a></div>
-        <div class="menu"><a href="">Menu</a></div>
-        <div class="menu"><a href="order.html">주문하기</a></div>
-        <div class="menu"><a href="">고객센터</a></div>
-        <div class="menu"><a href="">공지사항</a></div>
+        <div class="menu"><a href="/teatime/Signin" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;">회원가입</a></div>
+        <div class="menu"><a href="resources/html/gong-cha-brand.html">Brand</a></div>
+        <div class="menu"><a href="resources/html/menu.html">Menu</a></div>
+        <div class="menu"><a href="Order">주문하기</a></div>
+        <div class="menu"><a href="notice">공지사항</a></div>
         <%
         	if (id != null){
         		%>

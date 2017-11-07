@@ -821,8 +821,8 @@
     <div class="col-md-2">
     <div id="main">
         <a href="%EA%B3%B5%EC%B0%A8%20%EB%A9%94%EC%9D%B8%ED%99%94%EB%A9%B4.html"><img id="mainlogo"src="http://gong-cha.co.kr/view/gongcha/images/common/logo.png"></a>
-             <div class="menu"><a href="Login.html" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;" href="Login.html">로그인</a></div>
-            <div class="menu"><a href="Signin.html" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;" href="Signin.html">회원가입</a></div>
+             <div class="menu"><a href="Login" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;" href="Login.html">로그인</a></div>
+            <div class="menu"><a href="Signin" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;" href="Signin.html">회원가입</a></div>
             <div class="menu"><a href="gong-cha-brand.html">Brand</a></div>
             <div class="menu"><a href="%EA%B3%B5%EC%B0%A8_menu.html">Menu</a></div>
             <div class="menu"><a href="Drink.html">주문하기</a></div>
@@ -835,8 +835,8 @@
         <div id="mainbutton">
    <button type="button" id="button_1" class="btn btn-info">menu</button>
            <img id="mainlogo"src="http://gong-cha.co.kr/view/gongcha/images/common/logo.png">
-            <div class="menu"><a href="Login.html" onclick="window.open(this.href,'','width=510, height=620, scrollbars=yes'); return false;" href="Login.html">로그인</a></div>
-            <div class="menu"><a href="Signin.html" onclick="window.open(this.href,'','width=510, height=620, scrollbars=yes'); return false;" href="Signin.html">회원가입</a></div>
+            <div class="menu"><a href="Login" onclick="window.open(this.href,'','width=510, height=620, scrollbars=yes'); return false;" href="Login.html">로그인</a></div>
+            <div class="menu"><a href="Signin" onclick="window.open(this.href,'','width=510, height=620, scrollbars=yes'); return false;" href="Signin.html">회원가입</a></div>
             <div class="menu"><a href="gong-cha-brand.html">Brand</a></div>
             <div class="menu"><a href="%EA%B3%B5%EC%B0%A8_menu.html">Menu</a></div>
             <div class="menu"><a href="Drink.html">주문하기</a></div>
