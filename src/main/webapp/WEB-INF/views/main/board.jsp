@@ -116,7 +116,6 @@ $(document).ready(function(){
 			   for(var i = 0; i<(result.comment.length); i++){
 				   rate = rate + result.comment[i].rate;
 			   } 
-			   
 			   rate = (rate/result.comment.length).toFixed(1);
 			   if (rate<=5.0 && rate>=4.5){
 				   $(".commentrate").html("<p>평점 :★★★★★ </p>");   
@@ -124,19 +123,19 @@ $(document).ready(function(){
 				   $(".commentrate").html("<p>평점 :★★★★☆</p>");
 			   } else if(rate<=3.9 && rate>=3.5) {
 				   $(".commentrate").html("<p>평점 :★★★★</p>");
-			   } else if(rate<=3.5 && rate>=3.0) {
+			   } else if(rate<=3.4 && rate>=3.0) {
 				   $(".commentrate").html("<p>평점 :★★★☆</p>");
 			   } else if(rate<=2.9 && rate>=2.5) {
 				   $(".commentrate").html("<p>평점 :★★★</p>");
-			   } else if(rate<=2.5 && rate>=2.0) {
+			   } else if(rate<=2.4 && rate>=2.0) {
 				   $(".commentrate").html("<p>평점 :★★☆</p>");
 			   } else if(rate<=1.9 && rate>=1.5) {
 				   $(".commentrate").html("<p>평점 :★★</p>");
-			   } else if(rate<=1.5 && rate>=1.0) {
+			   } else if(rate<=1.4 && rate>=1.0) {
 				   $(".commentrate").html("<p>평점 :★☆</p>");
 			   } else if(rate<=0.9 && rate>=0.5) {
 				   $(".commentrate").html("<p>평점 :★</p>");
-			   } else if(rate<=0.5 && rate>=0) {
+			   } else if(rate<=0.4 && rate>=0) {
 				   $(".commentrate").html("<p>평점 :☆</p>");
 			   } else{
 				   $(".commentrate").html("-");
@@ -156,7 +155,8 @@ $(document).ready(function(){
 				  type:"post", 
 				  data:$( this ).serialize()}).done(function(result){
 				 if(result.comment == 1){
-					 alert("평가완료!")
+					 alert("평가완료!");
+					 location.reload();
 				 }else{
 					 alert("입력이 잘못되었습니다.");
 				 }

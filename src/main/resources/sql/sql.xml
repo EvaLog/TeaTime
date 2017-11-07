@@ -32,7 +32,7 @@
 	</select>
 	
 	<select id="teaselect" parameterType="hashmap" resultType="hashmap">
-		select * FROM tea limit #{start}, #{viewrow}
+		select * FROM tea order by rate desc limit #{start}, #{viewrow} 
 	</select>
 	
 	<select id="tot" resultType="hashmap">
@@ -42,7 +42,8 @@
 	<select id="notice" resultType="hashmap">
 		select * from notice
 	</select>
-<!-- 	비밀번호 초기화용 <update id="PwUpdate" parameterType="hashmap">
-		update profile set pw=#{pw} where id=#{id}
-	</update> -->
+	
+	<update id="rateUpdate" parameterType="hashmap">
+		update tea set rate=#{rate} where no = #{no}
+	</update>
 </mapper>

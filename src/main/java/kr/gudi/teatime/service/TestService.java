@@ -81,6 +81,15 @@ public class TestService implements TestServiceInterface {
 		return map;
 	}
 
+	@Override
+	public HashMap<String, Object> rateUpdate(HashMap<String, Object> param) {
+		List<HashMap<String, Object>> list = tdi.rateUpdate(param);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("rate", list);
+		
+		return map;
+	}
+
 
 
 	
