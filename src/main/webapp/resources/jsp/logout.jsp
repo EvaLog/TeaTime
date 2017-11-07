@@ -11,7 +11,7 @@ session.invalidate();
 %>
 <script type="text/javascript">
 alert("안녕히 가십시요.");
-opener.location.reload();
+location.href = "/teatime";
 </script>
 </head>
 <body>

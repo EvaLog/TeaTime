@@ -1,5 +1,6 @@
 package kr.gudi.teatime.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
 
@@ -56,7 +57,11 @@ public class MainController {
 	
 	@RequestMapping("/Success")
 	public ModelAndView Success(ModelAndView mav, HttpServletRequest req, HttpServletResponse resp){
-		
+		try {
+			req.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 		HashMap<String, Object> param = HttpUtil.getParameterMap(req);
 		System.out.println(param);
 		
