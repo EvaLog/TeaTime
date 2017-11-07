@@ -8,7 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<%HashMap <String, Object> id = (HashMap <String, Object>)request.getAttribute("id"); %>
+<%HashMap <String, Object> map = (HashMap <String, Object>)request.getAttribute("Loginchk"); %>
+<%HashMap <String, Object> id = (HashMap <String, Object>)map.get("Loginsearch"); %>
 <body>
 아이디는 <%=id.get("id")%> 입니다.
 </body>

@@ -24,6 +24,12 @@ public class MainController {
 	@Autowired
 	TestServiceInterface tsi;
 	
+	@RequestMapping("/")
+	public ModelAndView main(ModelAndView mav){
+		mav.setViewName("main/main");
+		return mav;
+	}
+	
 	@RequestMapping("/Signin")
 	public ModelAndView Signin(ModelAndView mav){
 		mav.setViewName("Login/Signin");
@@ -85,17 +91,12 @@ public class MainController {
 	public ModelAndView LoginSearch(ModelAndView mav, HttpServletRequest req, HttpServletResponse resp){
 		HashMap<String, Object> param = HttpUtil.getParameterMap(req);
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map = tsi.LoginSearch(param);
-		System.out.println(param);
-		System.out.println(map);
-		
+		map.put("Loginsearch", tsi.LoginSearch(param));
 		HttpUtil.sendResponceToJson(resp, map);
-		
-		mav.addObject("id", map);
-		
-		if(map == (null)){
-			mav.setViewName("Login/Login");
+		if(map.get("Loginsearch") == (null)){
+			mav.setViewName("Login/LoginCheck");
 		} else {
+			mav.addObject("Loginchk", map);
 			mav.setViewName("Login/LoginSearchOk");
 		}
 		
@@ -114,15 +115,13 @@ public class MainController {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		
 		map = tsi.PwSearch(param);
-		System.out.println(param);
-		System.out.println(map);
-		
+
 		HttpUtil.sendResponceToJson(resp, map);
 		
 		mav.addObject("pw", map);
 		
 		if(map == (null)){
-			mav.setViewName("Login/Login");
+			mav.setViewName("Login/PwCheck");
 		} else {
 			mav.setViewName("Login/PwSearchOk");
 		}
@@ -177,17 +176,7 @@ public class MainController {
 	
 	
 	
-	@RequestMapping("/")
-	public ModelAndView main(ModelAndView mav, HttpServletRequest req, HttpServletResponse resp){
-		HashMap<String, Object> param = HttpUtil.getParameterMap(req);
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		
-		map.put("logincheck", tsi.LoginCheck(param));
-		
-		HttpUtil.sendResponceToJson(resp, map);
-		mav.setViewName("main/main");
-		return mav;
-	}
+	
 	
 	@RequestMapping("/notice")
 	public ModelAndView notice(ModelAndView mav, HttpServletResponse resp){
