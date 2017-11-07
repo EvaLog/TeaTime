@@ -13,7 +13,7 @@
 	이메일 : <input type="text" name="email"> 
 	휴대폰번호 : <input type="text" name="phone"><br>
 	<input type="submit" value="아이디 찾기">
-	<a href="javascript:window.close()"><button type="button">종료</button></a>
+	<a href="javascript:window.close()"><button type="button">닫기 </button></a>
 </form>
 </body>
 </html>

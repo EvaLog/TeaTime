@@ -179,7 +179,6 @@ th {
        	<td><%=noticelist.get(i).get("noticedate")%></td>
        </tr>
        <tr class="noticed">       		
-       		<td colspan="3"><img src=<%=noticelist.get(i).get("noticeImage")%>>
        		<td colspan="3">
        		<img src=<%=noticelist.get(i).get("noticeImage")%> style="wdith:50%; height:50%; margin-left:10%;">
        		<p><%=noticelist.get(i).get("noticeshow")%></p></td>
