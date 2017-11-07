@@ -9,11 +9,18 @@
 </head>
 <body>
 <form action="LoginSearch" method="post">
+<div class="col-md-12" style="text-align:center;">
 	<h3>가입하셨던 계정의 이메일과 휴대전화번호를 입력해주세요</h3>
+	</div>
+	<div class="col-md-12" style="text-align:center;">
 	이메일 : <input type="text" name="email"> 
-	휴대폰번호 : <input type="text" name="phone"><br>
+	휴대폰번호 : <input type="text" name="phone">
+	</div>
+	<br>
+	<div class="col-md-12" style="padding-left:40%;margin-top:5%">
 	<input type="submit" value="아이디 찾기">
 	<a href="javascript:window.close()"><button type="button">닫기 </button></a>
+	</div>
 </form>
 </body>
 </html>
