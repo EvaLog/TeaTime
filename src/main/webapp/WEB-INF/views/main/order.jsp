@@ -405,7 +405,7 @@
        
 	#fiximg{
              position: fixed;
-             background-image: url('b.jpg');
+             background-image: url('resources/image/b.jpg');
              width: 100%;
              height: 100%;
              z-index:  -1;
@@ -502,14 +502,21 @@
             text-align: center;
             padding-top: 10%;
         }
-       .toppingimg2, .toppingimg3, .toppingimg4, .toppingimg5{
+        .toppingimg2{
+            position: relative;
+            text-align: center;
+            opacity: 1;
+            width:100%;
+            height: 450px;
+        }
+       .toppingimg4{
             position: relative;
             text-align: center;
             opacity: 0.5;
             width:100%;
             height: 450px;
         }
-        .toppingimg1{
+        .toppingimg3, .toppingimg1, .toppingimg5{
             transform: translateY(-100%);
             position: relative;
             text-align: center;
@@ -814,35 +821,66 @@
 		}
          </style>
     </head>
+    <%
+        	String id = (String)session.getAttribute("id"); 
+        %>
 <body>
     <div class="container-fluid">
 		<div id="fiximg" ></div>
 <div class="row">
     <div class="col-md-2">
     <div id="main">
-        <a href="%EA%B3%B5%EC%B0%A8%20%EB%A9%94%EC%9D%B8%ED%99%94%EB%A9%B4.html"><img id="mainlogo"src="http://gong-cha.co.kr/view/gongcha/images/common/logo.png"></a>
-             <div class="menu"><a href="Login" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;" href="Login.html">로그인</a></div>
-            <div class="menu"><a href="Signin" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;" href="Signin.html">회원가입</a></div>
-            <div class="menu"><a href="gong-cha-brand.html">Brand</a></div>
-            <div class="menu"><a href="%EA%B3%B5%EC%B0%A8_menu.html">Menu</a></div>
-            <div class="menu"><a href="Drink.html">주문하기</a></div>
-            <div class="menu"><a href="">고객센터</a></div>
-            <div class="menu"><a href="">공지사항</a></div>
-            <div class="menu"><a href="">인기공차</a></div>
+        <a href="./"><img id="mainlogo"src="http://gong-cha.co.kr/view/gongcha/images/common/logo.png"></a>
+            <%
+        	if (id != null){
+        		%>
+				<div class="menu"> <%=id%> </div>
+        		<div class="menu"><a href="/teatime/resources/jsp/logout.jsp"> 로그아웃 </a></div>
+        		<%
+        	} else {
+        		%><div class="menu"><a href="/teatime/Login" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;"> 로그인 </a></div><%
+        	}
+        %>
+        <div class="menu"><a href="/teatime/Signin" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;">회원가입</a></div>
+        <div class="menu"><a href="brand">Brand</a></div>
+        <div class="menu"><a href="menu">Menu</a></div>
+        <div class="menu"><a href="Order">주문하기</a></div>
+        <div class="menu"><a href="notice">공지사항</a></div>
+        <%
+        	if (id != null){
+        		%>
+				<div class="menu"><a href="/teatime/board">인기공차</a></div>
+        		<%
+        	} 
+        %>
     </div>
     
         <div id="mainMB">
         <div id="mainbutton">
    <button type="button" id="button_1" class="btn btn-info">menu</button>
-           <img id="mainlogo"src="http://gong-cha.co.kr/view/gongcha/images/common/logo.png">
-            <div class="menu"><a href="Login" onclick="window.open(this.href,'','width=510, height=620, scrollbars=yes'); return false;" href="Login.html">로그인</a></div>
-            <div class="menu"><a href="Signin" onclick="window.open(this.href,'','width=510, height=620, scrollbars=yes'); return false;" href="Signin.html">회원가입</a></div>
-            <div class="menu"><a href="gong-cha-brand.html">Brand</a></div>
-            <div class="menu"><a href="%EA%B3%B5%EC%B0%A8_menu.html">Menu</a></div>
-            <div class="menu"><a href="Drink.html">주문하기</a></div>
-            <div class="menu"><a href="">고객센터</a></div>
-            <div class="menu"><a href="">공지사항</a></div>
-            <div class="menu"><a href="">인기공차</a></div>
+            <a href="./"><img id="mainlogo"src="http://gong-cha.co.kr/view/gongcha/images/common/logo.png"></a>
+            <%
+        	if (id != null){
+        		%>
+				<div class="menu"> <%=id%> </div>
+        		<div class="menu"><a href="/teatime/resources/jsp/logout.jsp"> 로그아웃 </a></div>
+        		<%
+        	} else {
+        		%><div class="menu"><a href="/teatime/Login" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;"> 로그인 </a></div><%
+        	}
+        %>
+        <div class="menu"><a href="/teatime/Signin" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;">회원가입</a></div>
+        <div class="menu"><a href="brand">Brand</a></div>
+        <div class="menu"><a href="menu">Menu</a></div>
+        <div class="menu"><a href="Order">주문하기</a></div>
+        <div class="menu"><a href="notice">공지사항</a></div>
+        <%
+        	if (id != null){
+        		%>
+				<div class="menu"><a href="/teatime/board">인기공차</a></div>
+        		<%
+        	} 
+        %>
         </div>
     </div>
     </div>
@@ -850,14 +888,14 @@
     <div id="boardright" class="col-md-10">
         <div class="upper">
         <p class="name">진행상황</p>
-            <img class="progress1" src="image/step/STEP1.png">
-            <img class="progress1s" src="image/step/STEP1s.png">
-            <img class="progressbar1" src="image/step/bar.png">
-            <img class="progress2" src="image/step/STEP2.png">
-            <img class="progress2s" src="image/step/STEP2s.png">
-            <img class="progressbar2" src="image/step/bar.png">
-            <img class="progress3" src="image/step/STEP3.png">
-            <img class="progress3s" src="image/step/STEP3s.png">
+            <img class="progress1" src="resources/image/step/STEP1.png">
+            <img class="progress1s" src="resources/image/step/STEP1s.png">
+            <img class="progressbar1" src="resources/image/step/bar.png">
+            <img class="progress2" src="resources/image/step/STEP2.png">
+            <img class="progress2s" src="resources/image/step/STEP2s.png">
+            <img class="progressbar2" src="resources/image/step/bar.png">
+            <img class="progress3" src="resources/image/step/STEP3.png">
+            <img class="progress3s" src="resources/image/step/STEP3s.png">
             <button class="next">다음 →</button>
             <button class="back">← 이전</button>
             <button type="button" class="purchase">주문 완료</button>
@@ -866,27 +904,27 @@
         
         <div class="cup col-md-3">
             <div class="cupimg">
-                <img src="image/cha00.jpg">
+                <img src="resources/image/cha00.jpg">
             </div>
             <div class="toppingimg1">
-                <img src="image/topping/topping0.png">
+                <img src="resources/image/topping/topping0.png">
 				
             </div>
             <div class="toppingimg2">
-                <img src="image/topping/topping1.png">
+                <img src="resources/image/topping/topping1.png">
 			
             </div>
             <div class="toppingimg3">
-                <img src="image/topping/topping2.png">
+                <img src="resources/image/topping/topping2.png">
 				
 				
             </div>
             <div class="toppingimg4">
-                <img src="image/topping/topping3.png">
+                <img src="resources/image/topping/topping3.png">
 				
             </div>
             <div class="toppingimg5">
-                <img src="image/topping/topping4.png">
+                <img src="resources/image/topping/topping4.png">
 				
             </div>
         </div>
@@ -1065,19 +1103,19 @@
         </div>
 			
 			<div id="mouse1">
-			<img src="image/%EB%B0%80%ED%81%AC%ED%8F%BC.png">
+			<img src="resources/image/%EB%B0%80%ED%81%AC%ED%8F%BC.png">
 			</div>
 			<div id="mouse2">
-			<img src="image/%ED%83%80%ED%94%BC%EC%98%A4%EC%B9%B4%ED%8E%84.png">
+			<img src="resources/image/%ED%83%80%ED%94%BC%EC%98%A4%EC%B9%B4%ED%8E%84.png">
 			</div>
 			<div id="mouse3">
-			<img src="image/%EC%95%8C%EB%A1%9C%EC%97%90.png">
+			<img src="resources/image/%EC%95%8C%EB%A1%9C%EC%97%90.png">
 			</div>
 			<div id="mouse4">
-			<img src="image/%EC%BD%94%EC%BD%94%EB%84%9B.jpg">
+			<img src="resources/image/%EC%BD%94%EC%BD%94%EB%84%9B.jpg">
 			</div>
 			<div id="mouse5">
-			<img src="image/%ED%99%94%EC%9D%B4%ED%8A%B8%ED%8E%84.png">
+			<img src="resources/image/%ED%99%94%EC%9D%B4%ED%8A%B8%ED%8E%84.png">
 			</div>
 			
         </div>

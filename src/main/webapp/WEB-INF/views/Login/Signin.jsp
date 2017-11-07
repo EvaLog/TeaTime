@@ -145,7 +145,7 @@
    <div class="col-md-12">
        <div id="sgin" class="col-md-5"> <h1 style="float:right;">회원가입</h1></div>
        <div class="col-md-7">
-       <img id="logo" src="resources/image/logo.png" style="margin:10%;">
+       <a href="javascript:window.close()"><img id="logo" src="resources/image/logo.png" style="margin:10%;"></a>
           </div>
     </div>
         <hr>

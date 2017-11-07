@@ -124,7 +124,7 @@
            <div class="col-md-1"></div>
            <div class="col-md-1"></div>
        <div class="col-md-12">
-       <img id="logo" src="resources/image/logo.png" style="float: right;margin-right: 60%"></a>
+       <a href="javascript:window.close()"><img id="logo" src="resources/image/logo.png" style="float: right;margin-right: 60%"></a>
           </div>
     </div>
         
