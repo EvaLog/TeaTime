@@ -142,8 +142,8 @@
             <input type="submit" value="로그인" style="float: right;margin-right: 35%">
     	</div>
     	<div id="but" class="col-md-12">
-    	<a href="resources/html/gong-cha.html">
-    	<input type="button" value="돌아가기" style="float: right;margin-right: 35%">
+    	<a href="javascript:window.close()">
+    	<input type="button" value="닫기" style="float: right;margin-right: 35%">
     	</a>
     	</div>
     </form>
@@ -154,9 +154,11 @@
              <div class="col-md-1"></div>
              <div class="col-md-1"></div>
              <div class="col-md-1"></div>
+             <div class="col-md-7" style="margin:3%;margin-left:0;">
             <a href="Signin">회원가입</a>
             <a href="LoginCheck">아이디 찾기</a>
             <a href="PwCheck">비밀번호 찾기</a>
+            </div>
     </div>
     <div id="footer" class="col-md-12">
 	<div class="col-md-1"></div>
