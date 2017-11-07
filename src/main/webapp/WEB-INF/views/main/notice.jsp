@@ -117,7 +117,9 @@ th {
 }
 </style>
 </head>
-
+<%
+        	String id = (String)session.getAttribute("id"); 
+        %>
 <body>
 <center>
 <div class="container-fluid">
@@ -125,14 +127,30 @@ th {
         <div class="col-md-12">
         <div class="col-md-2">
         <div id="main">
-        <img id="mainlogo" src="http://gong-cha.co.kr/view/gongcha/images/common/logo.png">
-        <div class="menu"><a href="">회원가입</a></div>
-        <div class="menu"><a href="">Brand</a></div>
-        <div class="menu"><a href="">Menu</a></div>
-        <div class="menu"><a href="">Store</a></div>
-        <div class="menu"><a href="">고객센터</a></div>
-        <div class="menu"><a href="">공지사항</a></div>
-        <div class="menu"><a href="">Franchise</a></div>
+         <a href="./"> <img id="mainlogo"src="http://gong-cha.co.kr/view/gongcha/images/common/logo.png"></a>
+        
+        <%
+        	if (id != null){
+        		%>
+				<div class="menu"> <%=id%> </div>
+        		<div class="menu"><a href="/teatime/resources/jsp/logout.jsp"> 로그아웃 </a></div>
+        		<%
+        	} else {
+        		%><div class="menu"><a href="/teatime/Login" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;"> 로그인 </a></div><%
+        	}
+        %>
+        <div class="menu"><a href="/teatime/Signin" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;">회원가입</a></div>
+        <div class="menu"><a href="brand">Brand</a></div>
+        <div class="menu"><a href="menu">Menu</a></div>
+        <div class="menu"><a href="Order">주문하기</a></div>
+        <div class="menu"><a href="notice">공지사항</a></div>
+        <%
+        	if (id != null){
+        		%>
+				<div class="menu"><a href="/teatime/board">인기공차</a></div>
+        		<%
+        	} 
+        %>
             </div>
             </div>
     <div class="col-md-10">
@@ -160,9 +178,10 @@ th {
        	<td class="noticeh")><%=noticelist.get(i).get("noticename")%></td>
        	<td><%=noticelist.get(i).get("noticedate")%></td>
        </tr>
-       <tr class="noticed">
-       		
+       <tr class="noticed">       		
        		<td colspan="3"><img src=<%=noticelist.get(i).get("noticeImage")%>>
+       		<td colspan="3">
+       		<img src=<%=noticelist.get(i).get("noticeImage")%> style="wdith:50%; height:50%; margin-left:10%;">
        		<p><%=noticelist.get(i).get("noticeshow")%></p></td>
        </tr>
        <%

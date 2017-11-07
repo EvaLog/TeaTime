@@ -133,6 +133,16 @@ public class MainController {
 		mav.setViewName("main/board");
 		return mav;
 	}
+	@RequestMapping("/brand")
+	public ModelAndView brand(ModelAndView mav, HttpServletRequest req, HttpServletResponse resp){
+		mav.setViewName("main/brand");
+		return mav;
+	}
+	@RequestMapping("/menu")
+	public ModelAndView menu(ModelAndView mav, HttpServletRequest req, HttpServletResponse resp){
+		mav.setViewName("main/menu");
+		return mav;
+	}
 	
 	@RequestMapping("/Order")
 	public ModelAndView order(ModelAndView mav, HttpServletRequest req, HttpServletResponse resp){

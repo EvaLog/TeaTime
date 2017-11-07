@@ -123,8 +123,8 @@
            <div class="col-md-1"></div>
            <div class="col-md-1"></div>
            <div class="col-md-1"></div>
-       <div class="col-md-7">
-       <a href="%EA%B3%B5%EC%B0%A8%20%EB%A9%94%EC%9D%B8%ED%99%94%EB%A9%B4.html"> <img id="logo" src="resources/image/logo.png" style="float: right;margin-right: 35%"></a>
+       <div class="col-md-12">
+       <a href="javascript:window.close()"><img id="logo" src="resources/image/logo.png" style="float: right;margin-right: 60%"></a>
           </div>
     </div>
         
@@ -171,7 +171,7 @@
   </a>
 
   <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
- <img src="image/KakaoTalk_20171030_115358271.jpg">
+ <img src="resources/image/KakaoTalk_20171030_115358271.jpg">
   </ul>
 </div>
 			<div class="dropup col-md-1">
@@ -181,7 +181,7 @@
   </a>
 
   <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
- <img src="image/KakaoTalk_20171030_115519991.jpg">
+ <img src="resources/image/KakaoTalk_20171030_115519991.jpg">
   </ul>
 </div>
 <div class="dropup col-md-1">
@@ -191,7 +191,7 @@
   </a>
 
   <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
- <img src="image/ddddd.jpg">
+ <img src="resources/image/ddddd.jpg">
   </ul>
 </div>
 			<div class="dropup col-md-1">
@@ -201,7 +201,7 @@
   </a>
 
   <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
- <img src="image/KakaoTalk_20171030_115456278.jpg">
+ <img src="resources/image/KakaoTalk_20171030_115456278.jpg">
   </ul>
 </div>
 <div class="col-md-1"></div>	
