@@ -36,11 +36,11 @@
 			width: 1000px;
 			height: 640px;
 			font-family: '돋움';
-	        background-image: url(p.jpg);
+	        background-image: url(resources/image/p.jpg);
              overflow: hidden;
      }
        
-       
+      
 		
         
        
@@ -133,6 +133,10 @@
         .dropup{
             margin-top: 35px;
         }
+        h4{
+       margin-top : 0px;
+       margin-bottom : 5px;
+       }
 			
         </style>
  
@@ -150,34 +154,35 @@
     </div>
         <hr>
 
-      <div  class="col-md-12">
-        <p style="float: right;margin-right: 30%">아이디<input type="text" name="id" placeholder="아이디" ></p>
+     <div  class="col-md-12">
+        <h4 style="float: right;margin-right: 30%">아이디<input type="text" name="id" placeholder="아이디" ></h4>
         
           </div>
          <div  class="col-md-12">
-        <p style="float: right;margin-right: 30%">비밀번호<input type="password" name="pw" placeholder="비밀번호"></p>
+        <h4 style="float: right;margin-right: 30%">비밀번호<input type="password" name="pw" placeholder="비밀번호"></h4>
         
           </div>
         <div  class="col-md-12">
-       <p style="float: right;margin-right: 30%">비밀번호 확인<input type="password" name="pwchk" placeholder="비밀번호 확인"></p>
+       <h4 style="float: right;margin-right: 30%">비밀번호 확인
+        <input type="password" placeholder="비밀번호 확인"></h4>
              
           </div>
         <hr>
         <div  class="col-md-12">
-        <p style="float: right;margin-right: 30%"> 이름 <input type="text" name="name" placeholder="이름"></p>
+        <h4 style="float: right;margin-right: 30%"> 이름 <input type="text" name="name" placeholder="이름"></h4>
      </div>
         
       <div  class="col-md-12">
-        <p style="float: right;margin-right: 30%">휴대전화<input type="text" name="phone" placeholder="휴대전화번호"></p>
+        <h4 style="float: right;margin-right: 30%">휴대전화<input type="text" name="phone" placeholder="휴대전화번호"></h4>
      
 
      </div>         
     <div  class="col-md-12">
-        <p style="float: right;margin-right: 30%">이메일<input type="text" name="email" placeholder="이메일"></p>
+        <h4 style="float: right;margin-right: 30%">이메일<input type="text" name="email" placeholder="이메일"></h4>
     </div>
         <hr>
         <div  class="col-md-12">
-        	<input type="submit" value="가입" style="float: right;margin-right: 30%;margin-top: 5%;margin-bottom: 5%;">
+        	<input type="submit" value="가입" style="float: right;margin-right: 30%;margin-top: 5%;margin-bottom: 5%;" >
             <!-- <a href="#" type="submit" class="btn color">가입</a> -->
         </div>
   <div id="footer" class="col-md-12">
@@ -186,7 +191,7 @@
       <div class="col-md-1"></div>
       <div class="col-md-1"></div>
 <div class="dropup col-md-1">
-  <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
+  <a id="dLabel" data-target="#"  data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
     이근형
     <span></span>
   </a>

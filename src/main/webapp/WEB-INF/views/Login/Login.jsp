@@ -54,7 +54,10 @@
         }
       
         
-       
+       h3{
+   margin-bottom : 0px;
+   margin-top : 0px;
+   }
         
         
         input{
@@ -128,19 +131,18 @@
           </div>
     </div>
         
-             <div class="col-md-12">
-             <p style="float: right;margin-right: 35%;margin-bottom: 50px;">아이디
-                 <input type="text" name="id" placeholder="아이디" ></p>
+            <div class="col-md-12">
+             <h3 style="float: right;margin-right: 35%;margin-bottom: 20px;">아이디
+                 <input type="text" name="id" placeholder="아이디" ></h3>
               </div>
         <div>
              <div class="col-md-12">
-             <p style="float: right;margin-right: 35%">비밀번호<input type="password" name="pw" placeholder="비밀번호" ></p>
+             <h3 style="float: right;margin-right: 35%;margin-bottom: 20px;">비밀번호<input type="password" name="pw" placeholder="비밀번호" ></h3>
             </div>
     </div>
-      		
-		<div id="but" class="col-md-12" >
-            <input type="submit" value="로그인" style="float: right;margin-right: 35%">
-    	</div>
+	  <div id="but" class="col-md-12" >
+            <input type="submit" value="로그인" style="float: right;margin-right: 35%;margin-bottom: 1%;">
+       </div>
     	<div id="but" class="col-md-12">
     	<a href="javascript:window.close()">
     	<input type="button" value="닫기" style="float: right;margin-right: 35%">

@@ -262,7 +262,7 @@ if(<%=id%> != null){
 
 
 /* 큰 기기들 (큰 데스크탑, 1200px 이상) */
-@media (min-width: 768px) { 
+@media (min-width:1000px) { 
           #main {
         
             width: 100%;
@@ -289,7 +289,7 @@ if(<%=id%> != null){
               
           }
               
- }
+ 
         body {
             margin: 0;
         }
@@ -302,8 +302,7 @@ if(<%=id%> != null){
             height: 100vh;
             float: right;
         }
-</style>
-<style>
+
     
     .col-md-2, .col-md-10, .col-md-4, .col-md-12{
             padding: 0;
@@ -338,30 +337,41 @@ if(<%=id%> != null){
             margin: 80px;
         margin-bottom: 120px;
           }
-        
-        #boardright{
+           #boardright{
             width:auto;
             padding : 0px;
             position: relative;
             margin-left: 100px;
+            
         }
         #boardright .boardtop {
-        	
+           
             height:50px;
             margin-bottom: 20px;    
         }
-        #boardright .boardtop .notice{
-            margin-left: 60px;
-            background-color: antiquewhite;
-            width:55%;
+        .notice{
+           margin-left:0px;
+            padding : 0px;
+            background-color: firebrick;
+            width:100wv;
             height:50px;
-            font-size:1.1rem;
+            font-size:2rem;
+            color : white;
             line-height: 50px;
+            
+        }
+        .notice h3{
+        margin : 0px;
+        padding-top : 15px;
+        padding-left : 30px;
         }
         #boardright .boardtop .notice p{
             padding-left: 20px;
         }
+        #boardright h3{
+        margin:0px;
         
+       }
         
         
         .borderrow{
@@ -407,8 +417,9 @@ if(<%=id%> != null){
         }
         .pagebtn{
         margin-bottom:20px;
+        
         }
-       
+}
     </style>    
     
     </head>
@@ -443,11 +454,13 @@ if(<%=id%> != null){
         %>
     </div>
     </div>
+     <div class="boardtop col-md-10">
+      
+                  <div class="notice "><h3>회원님들의 인기 공차!</h3></div>
+            </div>
     <div class="col-md-10">
     <div id="boardright" class="col-md-10">
-            <div class="boardtop col-md-12">
-                  <div class="notice"><p>공지사항 여백</p></div>
-            </div>
+          
            
            
             <div class="boardmain">

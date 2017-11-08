@@ -29,6 +29,15 @@ $(document).ready(function(){
 </script>
 
 <style>
+@media (max-width: 999px) {
+	
+	#main{
+	display:none;
+	}
+
+
+}
+@media (min-width: 1000px) {
 	.noticeh:hover{
 		cursor:pointer;
 	}
@@ -113,6 +122,7 @@ th {
 	.col-md-10,.col-md-2{
 	
 	padding:0px;}
+	}
 </style>
 </head>
 <%
@@ -160,7 +170,7 @@ th {
             </div>
         <div id="fiximg"></div>
         </div>
-    </div>
+    
 <center>
 <h1>공지사항</h1>
  <table cellpadding=5 cellspacing=0 border="1">
@@ -196,6 +206,7 @@ th {
 
   		
 </center>
+</div>
 </div>
 </div>
 </div>
