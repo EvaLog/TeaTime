@@ -53,26 +53,27 @@ $(document).ready(function(){
             height: 100%;
         }
         #main {
-            position: fixed;
-            width: 16.66666%;
+            width: 100%;
             height: 100vh;
             background-color: darkgray;
             text-align: center;
             }
-        
-        .logo {
+        #mainMB{
+                  display:none;
+              }
+     .menu {
+            
+            margin: 10%;
+            font-size: 200%;
+            
+            
+        }
+     .logo {
             margin: 25%
         }
-        .menu {
-            margin: 10%;
-            font-size: 25px;
-        }
-        a {
-            text-decoration: none;
-        }
-        #mainlogo {
+    #mainlogo{
             margin: 80px;
-            margin-bottom: 120px;
+        margin-bottom: 120px;
           }
     
         #title {
@@ -84,7 +85,7 @@ $(document).ready(function(){
               position: fixed;
               width: 100%;
               height: 100%;
-              background-image: url('image/KakaoTalk_20171026_184143680.jpg');
+              background-image: url('resources/image/KakaoTalk_20171026_184143680.jpg');
               z-index: -1;
           }
     #spring {
@@ -115,13 +116,16 @@ th {
     background-color: firebrick;
     color: white;
 }
+	.col-md-10,.col-md-2{
+	
+	padding:0px;}
 </style>
 </head>
 <%
         	String id = (String)session.getAttribute("id"); 
         %>
 <body>
-<center>
+
 <div class="container-fluid">
         <div class="row">
         <div class="col-md-12">
@@ -158,24 +162,28 @@ th {
     <div id="title" class="col-md-12">
         <div class="col-md-3">
         <h1>NEWS</h1>
-        <h>공차의 다양한 소식을 확인해 보세요.</h>
+        <h3>공차의 다양한 소식을 확인해 보세요.</h3>
             </div>
         <div id="fiximg"></div>
+        </div>
     </div>
 <center>
+<h1>공지사항</h1>
  <table cellpadding=5 cellspacing=0 border="1">
-<h2>공지사항</h2>
+ 
+
+<tr>
   		 <th>번호</th>
          <th>제목</th>
          <th>작성일</th>
-  
+  </tr>
   <tbody>
          <%
            for(int i=0; i<noticelist.size(); i++){
          %>
        <tr>
        	<td><%=noticelist.get(i).get("id")%></td>
-       	<td class="noticeh")><%=noticelist.get(i).get("noticename")%></td>
+       	<td class="noticeh"><%=noticelist.get(i).get("noticename")%></td>
        	<td><%=noticelist.get(i).get("noticedate")%></td>
        </tr>
        <tr class="noticed">       		
@@ -194,5 +202,8 @@ th {
 
   		
 </center>
+</div>
+</div>
+</div>
 </body>
 </html>

@@ -315,6 +315,29 @@ if(<%=id%> != null){
             margin: 0;
             padding: 0;
         }
+         #main {
+            width: 100%;
+            height: 1010px;
+            background-color: darkgray;
+            text-align: center;
+            }
+        #mainMB{
+                  display:none;
+              }
+     .menu {
+            
+            margin: 10%;
+            font-size: 200%;
+            
+            
+        }
+     .logo {
+            margin: 25%
+        }
+    #mainlogo{
+            margin: 80px;
+        margin-bottom: 120px;
+          }
         
         #boardright{
             width:auto;
@@ -405,12 +428,18 @@ if(<%=id%> != null){
         		%><div class="menu"><a href="/teatime/Login"> 로그인 </a></div><%
         	}
         %>
-        <div class="menu"><a href="">Brand</a></div>
-        <div class="menu"><a href="">Menu</a></div>
-        <div class="menu"><a href="">Store</a></div>
-        <div class="menu"><a href="">고객센터</a></div>
-        <div class="menu"><a href="">공지사항</a></div>
-        <div class="menu"><a href="">Franchise</a></div>
+        <div class="menu"><a href="/teatime/Signin" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;">회원가입</a></div>
+        <div class="menu"><a href="brand">Brand</a></div>
+        <div class="menu"><a href="menu">Menu</a></div>
+        <div class="menu"><a href="Order">주문하기</a></div>
+        <div class="menu"><a href="notice">공지사항</a></div>
+        <%
+        	if (id != null){
+        		%>
+				<div class="menu"><a href="/teatime/board">인기공차</a></div>
+        		<%
+        	} 
+        %>
     </div>
     </div>
     <div class="col-md-10">
