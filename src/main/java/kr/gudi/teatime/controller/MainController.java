@@ -116,7 +116,7 @@ public class MainController {
 		map.put("Loginsearch", tsi.LoginSearch(param));
 		HttpUtil.sendResponceToJson(resp, map);
 		if(map.get("Loginsearch") == (null)){
-			mav.setViewName("Login/LoginCheck");
+			mav.setViewName("Login/idpwwrong");
 		} else {
 			mav.addObject("Loginchk", map);
 			mav.setViewName("Login/LoginSearchOk");
@@ -143,7 +143,7 @@ public class MainController {
 		mav.addObject("pw", map);
 		
 		if(map == (null)){
-			mav.setViewName("Login/PwCheck");
+			mav.setViewName("Login/idpwwrong");
 		} else {
 			mav.setViewName("Login/PwSearchOk");
 		}

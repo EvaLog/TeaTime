@@ -6,11 +6,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
 <%HashMap <String, Object> map = (HashMap <String, Object>)request.getAttribute("Loginchk"); %>
 <%HashMap <String, Object> id = (HashMap <String, Object>)map.get("Loginsearch"); %>
+
+<script>
+alert("아이디는 <%=id.get("id")%> 입니다.");
+location.href="/teatime/LoginCheck"; 
+
+</script>
+<title>Insert title here</title>
+</head>
 <body>
-아이디는 <%=id.get("id")%> 입니다.
+
 </body>
 </html>

@@ -20,7 +20,6 @@
 $(document).ready(function(){
 	$(".noticeh").click(function(){
 		var index = $(".noticeh").index(this);
-		console.log(index);
 		var noticed = $(".noticed").eq(index);
 		noticed.slideToggle("fast");
 		
@@ -188,7 +187,7 @@ th {
        </tr>
        <tr class="noticed">       		
        		<td colspan="3">
-       		<img src=<%=noticelist.get(i).get("noticeImage")%> style="wdith:50%; height:50%; margin-left:10%;">
+       		<img src="<%=noticelist.get(i).get("noticeImage")%>" style="wdith:50%; height:50%; margin-left:10%;">
        		<p><%=noticelist.get(i).get("noticeshow")%></p></td>
        </tr>
        <%
