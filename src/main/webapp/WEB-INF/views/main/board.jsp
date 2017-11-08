@@ -323,7 +323,7 @@ if(<%=id%> != null){
             margin-left: 100px;
         }
         #boardright .boardtop {
-        	width:100vw;
+        	
             height:50px;
             margin-bottom: 20px;    
         }
@@ -382,6 +382,9 @@ if(<%=id%> != null){
         .borderrow #panel ul{
             margin: 0;
         }
+        .pagebtn{
+        margin-bottom:20px;
+        }
     </style>    
     
     </head>
@@ -409,20 +412,7 @@ if(<%=id%> != null){
         <div class="menu"><a href="">공지사항</a></div>
         <div class="menu"><a href="">Franchise</a></div>
     </div>
-    <div id="mainbutton">
-   <button type="button" class="btn btn-info">menu</button>
-        <div id="mainMB">
-            <img id="mainlogo"src="http://gong-cha.co.kr/view/gongcha/images/common/logo.png">
-            <div class="menu"><a href="">${id}</a></div>
-            <div class="menu"><a href="">Brand</a></div>
-            <div class="menu"><a href="">Menu</a></div>
-            <div class="menu"><a href="">Store</a></div>
-            <div class="menu"><a href="">고객센터</a></div>
-            <div class="menu"><a href="">공지사항</a></div>
-            <div class="menu"><a href="">Franchise</a></div>
-        </div>
     </div>
-        </div>
     <div class="col-md-10">
     <div id="boardright" class="col-md-10">
             <div class="boardtop col-md-12">

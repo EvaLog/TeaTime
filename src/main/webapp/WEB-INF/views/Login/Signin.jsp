@@ -178,7 +178,7 @@
     </div>
         <hr>
         <div  class="col-md-12">
-        	<input type="submit" value="가입" style="float: right;margin-right: 30%;margin-top: 5%;margin-bottom: 5%;">
+        	<input type="submit" value="가입" style="float: right;margin-right: 30%;margin-top: 5%;margin-bottom: 5%;" >
             <!-- <a href="#" type="submit" class="btn color">가입</a> -->
         </div>
   <div id="footer" class="col-md-12">
