@@ -418,7 +418,7 @@ if(<%=id%> != null){
 <body>
     <div class="col-md-2">
     <div id="main">
-        <img id="mainlogo"src="http://gong-cha.co.kr/view/gongcha/images/common/logo.png">
+         <a href="./"> <img id="mainlogo"src="http://gong-cha.co.kr/view/gongcha/images/common/logo.png"></a>
         <%
         	if (id != null){
         		%>
