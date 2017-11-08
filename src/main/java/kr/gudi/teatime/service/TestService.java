@@ -90,6 +90,12 @@ public class TestService implements TestServiceInterface {
 		return map;
 	}
 
+	@Override
+	public HashMap<String, Object> signinchk(HashMap<String, Object> param) {
+		map =  tdi.SigninCheck(param);
+		return map;
+	}
+
 
 
 	

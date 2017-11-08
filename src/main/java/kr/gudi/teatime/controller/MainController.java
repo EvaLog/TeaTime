@@ -34,7 +34,7 @@ public class MainController {
 	
 	@RequestMapping("/Signin")
 	public ModelAndView Signin(ModelAndView mav){
-		mav.setViewName("Login/Signin");
+		mav.setViewName("signin/Signin");
 		return mav;
 	}
 	
@@ -63,20 +63,36 @@ public class MainController {
 			e.printStackTrace();
 		}
 		HashMap<String, Object> param = HttpUtil.getParameterMap(req);
-		System.out.println(param);
 		
 		HashMap<String, Object> map = new HashMap<String, Object>();
+		HashMap<String, Object> iddupe = new  HashMap<String, Object>();
+				
+		iddupe = tsi.signinchk(param);
 		
-		if(!("").equals(param)){
-			map.put("signin", tsi.signin(param));
-			map.put("stat", true);
-		} else {
-			map.put("stat", false);
+		
+		if (iddupe == null){
+			if(param.get("id").equals("")){
+			mav.setViewName("signin/needid");
+			}else if(param.get("pw").equals("")){
+			mav.setViewName("signin/needpw");
+			}else if(!(param.get("pw").equals(param.get("pwchk")))){ //miss
+			mav.setViewName("signin/pwnotsame");
+			}else if(param.get("name").equals("")){
+			mav.setViewName("signin/needname");
+			} else if(param.get("phone").equals("")){
+			mav.setViewName("signin/needphone");
+			}else if(param.get("email").equals("")){
+			mav.setViewName("signin/needemail");
+			}else {
+				tsi.signin(param);
+				HttpUtil.sendResponceToJson(resp, map);
+			
+				mav.setViewName("Login/Success");
+			}
+			
+		} else{
+			mav.setViewName("signin/signindupe");
 		}
-		
-		HttpUtil.sendResponceToJson(resp, map);
-		
-		mav.setViewName("Login/Success");
 		return mav;
 	}
 	

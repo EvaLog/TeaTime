@@ -65,6 +65,11 @@ public class TestDao implements TestDaoInterface {
 		return session.selectList("sql.rateUpdate", param);
 	}
 
+	@Override
+	public HashMap<String, Object> SigninCheck(HashMap<String, Object> param) {
+		return session.selectOne("sql.signinchk", param);
+	}
+
 
 	
 

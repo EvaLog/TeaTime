@@ -21,4 +21,6 @@ public interface TestServiceInterface {
 	public HashMap<String, Object> commentsel(HashMap<String, Object> param);
 	
 	public HashMap<String, Object> rateUpdate(HashMap<String, Object> param);
+	
+	public HashMap<String, Object> signinchk(HashMap<String, Object> param);
 }
