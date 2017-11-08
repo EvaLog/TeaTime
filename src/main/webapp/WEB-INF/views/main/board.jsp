@@ -118,25 +118,25 @@ $(document).ready(function(){
 			   } 
 			   rate = (rate/result.comment.length).toFixed(1);
 			   if (rate<=5.0 && rate>=4.5){
-				   $(".commentrate").html("<p>평점 :★★★★★ </p>");   
+				   $(".commentrate").html("<p>평점 :★★★★★ ("+rate+")점</p>");   
 			   } else if(rate<=4.4 && rate>=4.0) {
-				   $(".commentrate").html("<p>평점 :★★★★☆</p>");
+				   $(".commentrate").html("<p>평점 :★★★★☆("+rate+")점</p>");
 			   } else if(rate<=3.9 && rate>=3.5) {
-				   $(".commentrate").html("<p>평점 :★★★★</p>");
+				   $(".commentrate").html("<p>평점 :★★★★("+rate+")점</p>");
 			   } else if(rate<=3.4 && rate>=3.0) {
-				   $(".commentrate").html("<p>평점 :★★★☆("+rate+")</p>");
+				   $(".commentrate").html("<p>평점 :★★★☆("+rate+")점</p>");
 			   } else if(rate<=2.9 && rate>=2.5) {
-				   $(".commentrate").html("<p>평점 :★★★("+rate+")</p>");
+				   $(".commentrate").html("<p>평점 :★★★("+rate+")점</p>");
 			   } else if(rate<=2.4 && rate>=2.0) {
-				   $(".commentrate").html("<p>평점 :★★☆</p>");
+				   $(".commentrate").html("<p>평점 :★★☆("+rate+")점</p>");
 			   } else if(rate<=1.9 && rate>=1.5) {
-				   $(".commentrate").html("<p>평점 :★★</p>");
+				   $(".commentrate").html("<p>평점 :★★("+rate+")점</p>");
 			   } else if(rate<=1.4 && rate>=1.0) {
-				   $(".commentrate").html("<p>평점 :★☆</p>");
+				   $(".commentrate").html("<p>평점 :★☆("+rate+")점</p>");
 			   } else if(rate<=0.9 && rate>=0.5) {
-				   $(".commentrate").html("<p>평점 :★</p>");
+				   $(".commentrate").html("<p>평점 :★("+rate+")점</p>");
 			   } else if(rate<=0.4 && rate>=0) {
-				   $(".commentrate").html("<p>평점 :☆</p>");
+				   $(".commentrate").html("<p>평점 :☆("+rate+")점</p>");
 			   } else{
 				   $(".commentrate").html("-");
 			   }
@@ -244,15 +244,34 @@ if(<%=id%> != null){
 /* 부트스트랩에서 이것은 기본이므로 미디어쿼리가 없습니다. */
 
 /* 작은 기기들 (태블릿, 768px 이상) */
- @media(max-width:767px){
+ @media(max-width:999px){
               
-              #main{
+              #main {
+        
+            width: 100%;
+            height: 100vh;
+            background-color: darkgray;
+            text-align: center;
+            }
+        #mainMB{
                   display:none;
               }
-              #mainMB{
-                  width: 100%;
-                  height: 400px;
-              }
+     .menu {
+            
+            margin: 5%;
+            font-size: 25px;
+            
+            
+        }
+     .logo {
+            margin: 25%
+        }
+    #mainlogo{
+          margin: 15%;
+            margin-bottom:  10%;
+              
+          }
+             
               
               
      }
@@ -437,10 +456,11 @@ if(<%=id%> != null){
         		<div class="menu"><a href="/teatime/resources/jsp/logout.jsp"> 로그아웃 </a></div>
         		<%
         	} else {
-        		%><div class="menu"><a href="/teatime/Login"> 로그인 </a></div><%
+        		%><div class="menu"><a href="/teatime/Login" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;"> 로그인 </a></div>
+        		 <div class="menu"><a href="/teatime/Signin" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;">회원가입</a></div><%
         	}
         %>
-        <div class="menu"><a href="/teatime/Signin" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;">회원가입</a></div>
+       
         <div class="menu"><a href="brand">Brand</a></div>
         <div class="menu"><a href="menu">Menu</a></div>
         <div class="menu"><a href="Order">주문하기</a></div>

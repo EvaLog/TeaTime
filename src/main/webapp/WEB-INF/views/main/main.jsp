@@ -110,6 +110,8 @@
          
          
          }
+         #nul{
+         display:none;}
          
         }
 
@@ -199,14 +201,16 @@
         		<div class="menu"><a href="/teatime/resources/jsp/logout.jsp"> 로그아웃 </a></div>
         		<%
         	} else {
-        		%><div class="menu"><a href="/teatime/Login" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;"> 로그인 </a></div><%
+        		%><div class="menu"><a href="/teatime/Login" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;"> 로그인 </a></div>
+        		 <div class="menu"><a href="/teatime/Signin" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;">
+        		 회원가입</a></div>
+        		<%
         	}
         %>
-        <div class="menu"><a href="/teatime/Signin" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;">회원가입</a></div>
         <div class="menu"><a href="brand">Brand</a></div>
         <div class="menu"><a href="menu">Menu</a></div>
-        <div class="menu" id="order"><a href="Order">주문하기</a></div>
-        <div class="menu"><a href="notice">공지사항</a></div>
+        <div class="menu" id="nul"><a href="Order">주문하기</a></div>
+        <div class="menu" id="nul"><a href="notice">공지사항</a></div>
         <%
         	if (id != null){
         		%>
