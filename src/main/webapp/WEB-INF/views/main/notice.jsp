@@ -51,30 +51,25 @@ $(document).ready(function(){
             width: 100%;
             height: 100%;
         }
-        #main {
-            width: 100%;
+      #main {
+            position: fixed;
+            width: 16.66666%;
             height: 100vh;
             background-color: darkgray;
             text-align: center;
             }
-        #mainMB{
-                  display:none;
-              }
-     .menu {
-            
-            margin: 10%;
-            font-size: 200%;
-            
-            
-        }
-     .logo {
+        
+        .logo {
             margin: 25%
         }
-    #mainlogo{
+        .menu {
+            margin: 10%;
+            font-size: 200%;
+        }
+         #mainlogo {
             margin: 80px;
-        margin-bottom: 120px;
+            margin-bottom: 120px;
           }
-    
         #title {
               background-color: firebrick;
               height: 250px;

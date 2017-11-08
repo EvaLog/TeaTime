@@ -57,7 +57,7 @@
               }
      .menu {
             
-            margin: 10%;
+            margin: 5%;
             font-size: 200%;
             
             

@@ -101,7 +101,7 @@ $(document).ready(function(){
               }
      .menu {
             
-            margin: 10%;
+            margin: 5%;
             font-size: 200%;
             
             
@@ -264,14 +264,7 @@ $(document).ready(function(){
          
          
          }
-          .col-md-6{
-             
-             padding-left: 0px;
-         
-             padding-right: 0px;
-         
-         
-         }
+          
          
          .col-md-9{
              padding-right: 0px;
@@ -336,6 +329,10 @@ $(document).ready(function(){
             margin: 10%;
             font-size: 200%;
         }
+         #mainlogo {
+            margin: 80px;
+            margin-bottom: 120px;
+          }
         a {
             text-decoration: none;
         }
@@ -345,10 +342,7 @@ $(document).ready(function(){
             height: 100vh;
             float: right;
         }
-        #mainlogo {
-            margin: 80px;
-            margin-bottom: 120px;
-          }
+       
          
           #title {
               background-color: firebrick;

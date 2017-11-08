@@ -48,9 +48,9 @@
     
    
         
-    }
+    
 /*제일 작은화면 폰 화면 */
-          @media(max-width:999px){
+    @media (max-width:1000px){
               
          body{
             display: inline-block;
@@ -60,7 +60,7 @@
             height: 100%;
             background-image: url('resources/image/p.jpg');
         }
-		    #main {
+		   #main {
             width: 100%;
             height: 100vh;
             background-color: darkgray;
@@ -69,7 +69,7 @@
         
      .menu {
             
-            margin: 10%;
+            margin: 5%;
             font-size: 200%;
             }
      .logo {
@@ -110,6 +110,7 @@
          
          
          }
+         
         }
 
 /* 큰 기기들 (큰 데스크탑, 1200px 이상) */

@@ -187,7 +187,7 @@
       <div class="col-md-1"></div>
       <div class="col-md-1"></div>
 <div class="dropup col-md-1">
-  <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
+  <a id="dLabel" data-target="#"  data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
     이근형
     <span></span>
   </a>
