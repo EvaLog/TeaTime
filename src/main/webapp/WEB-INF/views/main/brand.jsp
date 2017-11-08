@@ -82,13 +82,13 @@ $(document).ready(function(){
         display: none;
     }
           
-          body{
+         body{
             display: inline-block;
              padding: 0px;
             margin: 0px;
             width: 100%;
             height: 100%;
-            background-image: url('p.jpg');
+            background-image: url('resources/image/p.jpg');
         }
 		    #main {
             width: 100%;
@@ -106,9 +106,16 @@ $(document).ready(function(){
             
             
         }
-         .logo {
+     .logo {
             margin: 25%
         }
+    #mainlogo{
+        margin: 80px;
+        margin-bottom: 120px;
+        }
+        
+        
+        
         #title {
             margin: 0;
               background-color: firebrick;
@@ -175,31 +182,31 @@ $(document).ready(function(){
               font-size: 1.7rem;
           }
           .testH-bg1 {
-              background-image: url(image/1.png);
+              background-image: url(resources/image/1.png);
               background-repeat: no-repeat;
               background-size: contain;
               background-position: right;
           }
           .testH-bg2 {
-              background-image: url(image/2.png);
+              background-image: url(resources/image/2.png);
               background-repeat: no-repeat;
               background-size: contain;
               background-position: right;
           }
           .testH-bg3 {
-              background-image: url(image/3.png);
+              background-image: url(resources/image/3.png);
               background-repeat: no-repeat;
               background-size: contain;
               background-position: right;
           }
           .testH-bg4 {
-              background-image: url(image/4.png);
+              background-image: url(resources/image/4.png);
               background-repeat: no-repeat;
               background-size: contain;
               background-position: right;
           }
           .testH-bg5 {
-              background-image: url(image/5.png);
+              background-image: url(resources/image/5.png);
               background-repeat: no-repeat;
               background-size: contain;
               background-position: right;
@@ -226,6 +233,49 @@ $(document).ready(function(){
               
               z-index: -1;
           }
+          .col-md-3{
+             padding-left: 0px;
+         
+             padding-right: 0px;
+         
+         
+         }
+         
+          .col-md-2{
+             
+             padding-left: 0px;
+         
+             padding-right: 0px;
+         
+         
+         } .col-md-12{
+             
+             padding-left: 0px;
+         
+             padding-right: 0px;
+         
+         
+         } 
+         .col-md-6{
+             
+             padding-left: 0px;
+         
+             padding-right: 0px;
+         
+         
+         }
+          .col-md-6{
+             
+             padding-left: 0px;
+         
+             padding-right: 0px;
+         
+         
+         }
+         
+         .col-md-9{
+             padding-right: 0px;
+         }
         
           }
 /* 중간 기기들 (데스크탑, 992px 이상) */
@@ -412,7 +462,7 @@ $(document).ready(function(){
               position: fixed;
               width: 100%;
               height: 100%;
-              background-image: url('image/KakaoTalk_20171026_184143680.jpg');
+              background-image: url('resources/image/KakaoTalk_20171026_184143680.jpg');
               z-index: -1;
           }
           #gongchalogo{

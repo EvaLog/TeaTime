@@ -72,6 +72,9 @@
     </style>
 </head>
 <body>
+ <div class="col-md-12">
+       <a href="javascript:window.close()"><img id="logo" src="resources/image/logo.png" style="float: right;margin-right: 50%"></a>
+          </div>
 <form action="PwSearch" method="post">
 
 	<div class="col-md-12" style="text-align:center;">
