@@ -44,7 +44,7 @@
             margin: 0px;
             width: 100%;
             height: 100%;
-            background-image: url('p.jpg');
+            background-image: url('resources/image/p.jpg');
         }
 		    #main {
             width: 100%;
@@ -67,7 +67,8 @@
         }
     #mainlogo{
         margin: 80px;
-        margin-bottom: 120px;}
+        margin-bottom: 120px;
+        }
              
 		
 		  
@@ -399,7 +400,7 @@
         }
          #fiximg{
              position: fixed;
-             background-image: url('p.jpg');
+             background-image: url('resources/image/p.jpg');
              width: 1650px;
              height: 100%;
              z-index:  -1;

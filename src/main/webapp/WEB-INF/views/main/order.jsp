@@ -25,7 +25,7 @@
 
 <script src="https://code.jquery.com/jquery-2.2.1.min.js" ></script>
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script src="js/bootstrap.js"></script>
+<script src="resources/js/bootstrap.js"></script>
 <script>
    $(document).ready(function(){
        $("#mainMB").hide();
@@ -214,10 +214,12 @@
         $(".step2").hide();
         $(".step3").hide();
         $(".step1").show(); 
-        $(".progress3").show();
         $(".progress1s").show();
         $(".progress2s").hide();
         $(".progress3s").hide();
+        $(".progress1").hide();
+        $(".progress2").show();
+        $(".progress3").show();
         $(".next").show();
         $(".back").hide();
         step = 1;
@@ -226,11 +228,12 @@
         $(".step1").hide();
         $(".step3").hide();
         $(".step2").show();
-        $(".progress1").show();
-        $(".progress3").show();
         $(".progress1s").hide();
         $(".progress2s").show();
         $(".progress3s").hide();
+        $(".progress1").show();
+        $(".progress2").hide();
+        $(".progress3").show();
         $(".back").show();
         $(".next").show();
          step = 2;
@@ -239,10 +242,12 @@
         $(".step1").hide();
         $(".step2").hide();
         $(".step3").show();
-        $(".progress1").show();
         $(".progress1s").hide();
         $(".progress2s").hide();
         $(".progress3s").show();
+        $(".progress1").show();
+        $(".progress2").show();
+        $(".progress3").hide();
         $(".back").show();
         $(".next").hide();
          step = 3;

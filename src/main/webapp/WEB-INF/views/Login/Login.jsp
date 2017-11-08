@@ -42,7 +42,7 @@
 			width: 1000px;
 			height: 640px;
 			font-family: '돋움';
-	        background-image: url(p.jpg);
+	        background-image: url(resources/image/p.jpg);
          	overflow: hidden;
      }
         #full{
@@ -167,7 +167,7 @@
       <div class="col-md-1"></div>
       <div class="col-md-1"></div>
 <div class="dropup col-md-1">
-  <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
+  <a id="dLabel" data-target="#"  data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
     이근형
     <span></span>
   </a>
@@ -177,7 +177,7 @@
   </ul>
 </div>
 			<div class="dropup col-md-1">
-  <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
+  <a id="dLabel" data-target="#" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
     유준선
     <span></span>
   </a>
@@ -187,7 +187,7 @@
   </ul>
 </div>
 <div class="dropup col-md-1">
-  <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
+  <a id="dLabel" data-target="#"data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
     황근욱
     <span></span>
   </a>
@@ -197,7 +197,7 @@
   </ul>
 </div>
 			<div class="dropup col-md-1">
-  <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
+  <a id="dLabel" data-target="#"  data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
     허대철
     <span></span>
   </a>

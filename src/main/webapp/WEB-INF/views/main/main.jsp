@@ -46,15 +46,19 @@
         
     }
     
-/* 작은 기기들 (태블릿, 768px 이상) */
-    @media (min-width: 768px) {
-           body{
+   
+        
+    }
+/*제일 작은화면 폰 화면 */
+          @media(max-width:999px){
+              
+         body{
             display: inline-block;
              padding: 0px;
             margin: 0px;
             width: 100%;
             height: 100%;
-            background-image: url('p.jpg');
+            background-image: url('resources/image/p.jpg');
         }
 		    #main {
             width: 100%;
@@ -62,54 +66,51 @@
             background-color: darkgray;
             text-align: center;
             }
-        #mainMB{
-                  display:none;
-              }
+        
      .menu {
             
             margin: 10%;
             font-size: 200%;
-            
-            
-        }
+            }
      .logo {
             margin: 25%
         }
     #mainlogo{
-         margin: 80px;
+        margin: 80px;
         margin-bottom: 120px;
-              
-          }
-        .col-md-2 {
-    width: 16.66666667%;
-        }   
-        .col-md-10 {
-    width: 83.33333333%;
-            float: right;
         }
-    
-        
-    }
-/*제일 작은화면 폰 화면 */
-          @media(max-width:767px){
-              
-              #main{
-                  display:none;
-              }
-              #mainMB {
-                  width: 100%;
-                  height: 400px;
-              }
-              .carousel-inner img {
-        display: none;
-    }
+                .col-md-3{
+             padding-left: 0px;
+         
+             padding-right: 0px;
+         
+         
+         }
+         
+          .col-md-2{
              
-              
-     }
-
-
-
-
+             padding-left: 0px;
+         
+             padding-right: 0px;
+         
+         
+         } .col-md-12{
+             
+             padding-left: 0px;
+         
+             padding-right: 0px;
+         
+         
+         } 
+         .col-md-6{
+             
+             padding-left: 0px;
+         
+             padding-right: 0px;
+         
+         
+         }
+        }
 
 /* 큰 기기들 (큰 데스크탑, 1200px 이상) */
 @media (min-width: 1000px) { 
@@ -139,7 +140,7 @@
     body{
         overflow: hidden;
     }       
- }
+ 
           
           
           
@@ -177,7 +178,7 @@
     
     
       
-     
+     }
     </style>
 		<%
         	String id = (String)session.getAttribute("id"); 
@@ -203,7 +204,7 @@
         <div class="menu"><a href="/teatime/Signin" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;">회원가입</a></div>
         <div class="menu"><a href="brand">Brand</a></div>
         <div class="menu"><a href="menu">Menu</a></div>
-        <div class="menu"><a href="Order">주문하기</a></div>
+        <div class="menu" id="order"><a href="Order">주문하기</a></div>
         <div class="menu"><a href="notice">공지사항</a></div>
         <%
         	if (id != null){
@@ -212,35 +213,6 @@
         		<%
         	} 
         %>
-    </div>
-    <div id="mainMB">
-   <button type="button" class="btn btn-info">menu</button>
-       
-            <img id="mainlogo"src="http://gong-cha.co.kr/view/gongcha/images/common/logo.png">
-          <%
-        	if (id != null){
-        		%>
-				<div class="menu"> <%=id%> </div>
-        		<div class="menu"><a href="/teatime/resources/jsp/logout.jsp"> 로그아웃 </a></div>
-        		<%
-        	} else {
-        		%><div class="menu"><a href="/teatime/Login" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;"> 로그인 </a></div><%
-        	}
-        %>
-        <div class="menu"><a href="/teatime/Signin" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;">회원가입</a></div>
-        <div class="menu"><a href="brand">Brand</a></div>
-        <div class="menu"><a href="menu">Menu</a></div>
-        <div class="menu"><a href="Order">주문하기</a></div>
-        <div class="menu"><a href="notice">공지사항</a></div>
-        <%
-        	if (id != null){
-        		%>
-				<div class="menu"><a href="/teatime/board">인기공차</a></div>
-        		<%
-        	} 
-        %>
-            
-       
     </div>
     </div>
    <div class="col-md-10">

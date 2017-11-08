@@ -36,7 +36,7 @@
 			width: 1000px;
 			height: 640px;
 			font-family: '돋움';
-	        background-image: url(p.jpg);
+	        background-image: url(resources/image/p.jpg);
              overflow: hidden;
      }
        

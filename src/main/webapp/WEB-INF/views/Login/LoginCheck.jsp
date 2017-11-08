@@ -21,7 +21,7 @@
       body{
          width: 1000px;
          height: 710px;
-         background-image: url('KakaoTalk_20171026_184143680.jpg');
+         background-image: url('resources/KakaoTalk_20171026_184143680.jpg');
       }
         .col-md-12{
           
@@ -68,12 +68,17 @@
       
       .col-md-1{
          margin-top: 80px;
+      } .col-md-12{
+        padding:0px;
       }
       
       
     </style>
 </head>
 <body>
+ <div class="col-md-12">
+       <a href="javascript:window.close()"><img id="logo" src="resources/image/logo.png"></a>
+          </div>
 <form action="LoginSearch" method="post">
 <div class="col-md-12" style="text-align:center;">
 	<h3>가입하셨던 계정의 이메일과 휴대전화번호를 입력해주세요</h3>
@@ -95,43 +100,43 @@
       <div class="col-md-1"></div>
       <div class="col-md-1"></div>
 <div class="dropup col-md-1">
-  <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
+  <a id="dLabel" data-target="#" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
     이근형
     <span></span>
   </a>
 
   <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
- <img src="image/KakaoTalk_20171030_115358271.jpg">
+ <img src="resources/image/KakaoTalk_20171030_115358271.jpg">
   </ul>
 </div>
 			<div class="dropup col-md-1">
-  <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
+  <a id="dLabel" data-target="#"data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
     유준선
     <span></span>
   </a>
 
   <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
- <img src="image/KakaoTalk_20171030_115519991.jpg">
+ <img src="resources/image/KakaoTalk_20171030_115519991.jpg">
   </ul>
 </div>
 <div class="dropup col-md-1">
-  <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
+  <a id="dLabel" data-target="#"data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
     황근욱
     <span></span>
   </a>
 
   <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
- <img src="image/ddddd.jpg">
+ <img src="resources/image/ddddd.jpg">
   </ul>
 </div>
 			<div class="dropup col-md-1">
-  <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
+  <a id="dLabel" data-target="#"  data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">
     허대철
     <span></span>
   </a>
 
   <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
- <img src="image/KakaoTalk_20171030_115456278.jpg">
+ <img src="resources/image/KakaoTalk_20171030_115456278.jpg">
   </ul>
 </div>
 <div class="col-md-1"></div>	
