@@ -124,9 +124,9 @@ $(document).ready(function(){
 			   } else if(rate<=3.9 && rate>=3.5) {
 				   $(".commentrate").html("<p>평점 :★★★★</p>");
 			   } else if(rate<=3.4 && rate>=3.0) {
-				   $(".commentrate").html("<p>평점 :★★★☆</p>");
+				   $(".commentrate").html("<p>평점 :★★★☆("+rate+")</p>");
 			   } else if(rate<=2.9 && rate>=2.5) {
-				   $(".commentrate").html("<p>평점 :★★★</p>");
+				   $(".commentrate").html("<p>평점 :★★★("+rate+")</p>");
 			   } else if(rate<=2.4 && rate>=2.0) {
 				   $(".commentrate").html("<p>평점 :★★☆</p>");
 			   } else if(rate<=1.9 && rate>=1.5) {
