@@ -163,8 +163,7 @@
         
           </div>
         <div  class="col-md-12">
-       <h4 style="float: right;margin-right: 30%">비밀번호 확인
-        <input type="password" placeholder="비밀번호 확인"></h4>
+       <h4 style="float: right;margin-right: 30%">비밀번호 확인<input type="password" name="pwchk" placeholder="비밀번호 확인"></h4>
              
           </div>
         <hr>
