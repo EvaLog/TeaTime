@@ -23,8 +23,9 @@
 
 <!-- 부가적인 테마 -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script>
@@ -37,6 +38,9 @@ $(document).ready(function(){
           $(this).addClass("slide");
         }
     });
+  });
+  $("#flip").click(function(){
+      $("#panel").slideToggle("slow");
   });
 });
 </script>
@@ -82,6 +86,17 @@ $(document).ready(function(){
     #story-vid-s{
         display: none;
     }
+     #panel, #flip {
+    padding: 5px;
+    text-align: center;
+    background-color: darkgray;
+    border: solid 1px #c3c3c3;
+}
+
+#panel {
+    padding: 50px;
+    display: none;
+}
           
          body{
             display: inline-block;
@@ -91,14 +106,20 @@ $(document).ready(function(){
             height: 100%;
             background-image: url('resources/image/p.jpg');
         }
-		    #main {
+		  #main {
+		    display:none;
             width: 100%;
             height: 100vh;
             background-color: darkgray;
             text-align: center;
             }
-        #mainMB{
-                  display:none;
+        #mainmb{
+                display: inline-block;
+             padding: 0px;
+            margin: 0px;
+            width: 100%;
+            height: 100%;
+            background-image: url('resources/image/p.jpg');
               }
      .menu {
             
@@ -276,6 +297,10 @@ $(document).ready(function(){
 @media (min-width: @screen-md-min) { ... }
 /* 큰 기기들 (큰 데스크탑, 1200px 이상) */
 @media (min-width: 1000px) { 
+
+ #mainmb{
+           display:none;} 
+
     #story-vid{
         display: none;
     }
@@ -531,6 +556,38 @@ $(document).ready(function(){
         		<%
         	} 
         %>
+    </div>
+     <div style="width:100%; height:100%;background-color:firebrick;" id="flip" >
+    <img src="http://gong-cha.co.kr/view/gongcha/images/common/logo.png"  style="margin-left:88%;">
+    </div>
+    <div id="panel">
+         <a href="./"> <img id="mainlogo"src="http://gong-cha.co.kr/view/gongcha/images/common/logo.png"></a>
+           <%
+        	if (id != null){
+        		%>
+				<div class="menu"> <%=id%> </div>
+        		<div class="menu"><a href="/teatime/resources/jsp/logout.jsp"> 로그아웃 </a></div>
+        		<%
+        	} else {
+        		%><div class="menu"><a href="/teatime/Login" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;"> 로그인 </a></div>
+        		<div class="menu"><a href="/teatime/Signin" onclick="window.open(this.href,'','width=1000, height=710, scrollbars=yes'); return false;">회원가입</a></div>
+        		<%
+        	}
+        %>
+        
+        <div class="menu"><a href="brand">Brand</a></div>
+        <div class="menu"><a href="menu">Menu</a></div>
+        <div class="menu" id="nul"><a href="Order">주문하기</a></div>
+        <div class="menu" id="nul"><a href="notice">공지사항</a></div>
+        <%
+        	if (id != null){
+        		%>
+				<div class="menu"><a href="/teatime/board">인기공차</a></div>
+        		<%
+        	} 
+        %>
+            
+       
     </div>
             </div>
     
