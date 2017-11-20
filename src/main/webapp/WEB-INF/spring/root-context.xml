@@ -12,10 +12,12 @@
 <!-- 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" p:driverClassName="org.mariadb.jdbc.Driver" p:url="jdbc:mysql://host():3306/databasename" p:username="" p:password=""/> -->
 		<!-- JNDI 연결 2가지 방법 -->
 <!-- 	<jee:jndi-lookup id="dataSource" jndi-name="jdbc/name" expected-type="javax.sql.DataSource"/> -->
-	<bean id="dataSource" 
-		  class="org.springframework.jndi.JndiObjectFactoryBean" 
-		  p:jndiName="java:/comp/env/jdbc/teatime" 
-		  p:resourceRef="true"/>
+	 <bean id="dataSource" 
+    class="org.springframework.jdbc.datasource.DriverManagerDataSource" 
+    p:driverClassName="org.mariadb.jdbc.Driver" 
+    p:url="jdbc:mysql://gudi.kr:3306/teatime" 
+    p:username="gdj7" 
+    p:password="1234"/>
 
 		<!-- SqlSessionFactory 생성 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" p:dataSource-ref="dataSource" p:mapperLocations="classpath:/sql/*.xml" p:typeAliasesPackage="com.java.web.bean"/>
