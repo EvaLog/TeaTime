@@ -106,7 +106,7 @@ public class TestCase {
 	   @Test
 	   public void notice() throws Exception {
 	      mock.perform(get("/notice")           // get방식 : get("주소"), post방식 : post("주소") 
-	             .param("pw", "123") // paramater값 설정 : .param("key", "value")
+	             .param("pw", "1234") // paramater값 설정 : .param("key", "value")
 	             .param("id", "jsy")
 	             )
 	      .andDo(new ResultHandler() {// 처리 내용을 출력합니다.
@@ -125,8 +125,63 @@ public class TestCase {
 	            assertEquals(tdi.loginCheck(param), param);
 	         }
 	      })
-	      .andExpect(status().isOk())// 상태값은 OK가 나와야 합니다.
-	      .andExpect(model().attributeExists("notice"));// "mapname"이라는 attribute가 존재해야 합니다.
+	      .andExpect(status().isOk());// 상태값은 OK가 나와야 합니다.
+	}
+	   
+	   @Test
+	   public void signin() throws Exception {
+	      mock.perform(get("/Signin")           // get방식 : get("주소"), post방식 : post("주소") 
+	    		  .param("id", "jsy1234")
+	    		  .param("pw", "789789") // paramater값 설정 : .param("key", "value")
+	    		  .param("pwchk", "789789")
+	    		  .param("name", "가나다라")
+	    		  .param("phone", "010-1234-4321")
+	    		  .param("email", "asdfs@naver.com")
+	             )
+	      .andDo(new ResultHandler() {// 처리 내용을 출력합니다.
+	         @Override
+	         public void handle(MvcResult arg0) throws Exception {
+	            ModelAndView mav = arg0.getModelAndView();
+	            
+	           
+	            
+	            HttpServletRequest request = arg0.getRequest();
+	            HashMap<String, Object> param = HttpUtil.getParameterMap(request);
+	            System.out.println(param);
+	            
+	            System.out.println(mav.getViewName());
+	            
+	         }
+	      })
+	      .andExpect(status().isOk());// 상태값은 OK가 나와야 합니다.
+	}
+	   
+	   @Test
+	   public void board() throws Exception {
+	      mock.perform(get("/board")           // get방식 : get("주소"), post방식 : post("주소") 
+	    		  .param("id", "jsy1234")
+	    		  .param("pw", "789789") // paramater값 설정 : .param("key", "value")
+	             )
+	      .andDo(new ResultHandler() {// 처리 내용을 출력합니다.
+	         @Override
+	         public void handle(MvcResult arg0) throws Exception {
+	        	 HttpServletRequest request = arg0.getRequest();
+		         HashMap<String, Object> param = HttpUtil.getParameterMap(request);
+		         System.out.println(param);
+		         assertEquals(tdi.loginCheck(param), param);
+		         
+	            ModelAndView mav = arg0.getModelAndView();
+	            
+	           
+	            
+	            
+	            
+	            System.out.println(mav.getViewName());
+	            
+	           
+	         }
+	      })
+	      .andExpect(status().isOk());// 상태값은 OK가 나와야 합니다.
 	}
 	   
 	   
