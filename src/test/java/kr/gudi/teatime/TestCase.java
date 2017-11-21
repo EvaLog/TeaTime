@@ -33,6 +33,7 @@ import kr.gudi.teatime.controller.MainController;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"file:src/main/webapp/WEB-INF/spring/root-context.xml", "file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml"})
+@WebAppConfiguration
 public class TestCase {
 	
 	
@@ -45,10 +46,9 @@ public class TestCase {
 	   
 	   private int size = 7;
 	   private int tot = 7;
-	   private String start = "0";
-	   private String viewRow = "10";
-	   private String type = "FREE";
-	   private String URI = "/allData";
+	   private String id = "jsy";
+	   private String pw = "1234";
+	   private String URI = "/Login";
 	   
 	   @Before
 	   public void init(){ // MockMVC 에게 WebContext 정보 받아 오기 
@@ -57,11 +57,10 @@ public class TestCase {
 	      
 	   @Test
 	   public void BoardController() throws Exception {
-	      
 	      mock.perform(get(URI)           // get방식 : get("주소"), post방식 : post("주소") 
-	             .param("start", start) // paramater값 설정 : .param("key", "value")
-	                .param("viewRow", viewRow)
-	                .param("type", type))
+	             .param("pw", "123") // paramater값 설정 : .param("key", "value")
+	             .param("id", "hi")
+	             )
 	      .andDo(new ResultHandler() {// 처리 내용을 출력합니다.
 	         @Override
 	         public void handle(MvcResult arg0) throws Exception {
@@ -69,9 +68,11 @@ public class TestCase {
 	            Map<String, Object> map = mav.getModel();
 	            System.out.println(map);
 	            
-	            String message = map.get("message").toString();
+	            String message = map.get("id").toString();
 	            System.out.println(message);
-	            JsonParser parser = new JsonParser();
+	            
+	            assertEquals(id, message);
+	            /*JsonParser parser = new JsonParser();
 	            JsonElement element = parser.parse(message);
 
 	            JsonObject jobject = element.getAsJsonObject(); 
@@ -80,11 +81,11 @@ public class TestCase {
 	            assertEquals(size, list.size());
 	            
 	            JsonObject totCnt = jobject.get("totCntall").getAsJsonObject();
-	            assertEquals(tot, Integer.parseInt(totCnt.get("tot").toString()));
+	            assertEquals(tot, Integer.parseInt(totCnt.get("tot").toString()));*/
 	         }
 	      })
 	      .andExpect(status().isOk())// 상태값은 OK가 나와야 합니다.
-	      .andExpect(model().attributeExists("message"));// "message"이라는 attribute가 존재해야 합니다.
+	      .andExpect(model().attributeExists("id"));// "id"이라는 attribute가 존재해야 합니다.
 	      
 
 	}
