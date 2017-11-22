@@ -75,6 +75,12 @@ public class TestDao implements TestDaoInterface {
 		return session.selectOne("sql.signinchke", param);
 	}
 
+	@Override
+	public HashMap<String, Object> commtrig(HashMap<String, Object> param) {
+		System.out.println(param.get("criticname").toString());
+		return session.selectOne("sql.commented", param);
+	}
+
 
 	
 
