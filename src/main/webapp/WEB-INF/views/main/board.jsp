@@ -81,8 +81,7 @@ $(document).ready(function(){
 	            		+"<div class='commentshow'></div>"
 	       				+"</div>"
 	        			+"<div class='modal-footer'>"
-	        				+"<input type='submit' class='loginchk btn btn-default' value='평가하기'>"	
-	        				+"<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>"
+	        				
 	          			+"</div>"
 	          		 +"</div>< /form>"
 			  	+"</div>"
@@ -105,6 +104,12 @@ $(document).ready(function(){
 		   }).done(function(result){
 			   var max = result.comment.length-1;
 			   comments = result.comment[max];
+			   if(max == -1){
+				   $(".commentshow").html("");
+				   $(".modal-footer").html("<input type='submit' class='loginchk btn btn-default' value='평가하기'>"
+						   +"<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>"
+				   );
+			   } else {
 			   $(".commentshow").html("<p>추천인 : "+comments.criticname+"</p>"
 					   +"<p>추천평 :"+comments.comment+" </p>"
 			   );
@@ -138,13 +143,25 @@ $(document).ready(function(){
 			   }
 			   var myid = $(".idtext").text();
 			   var commid = result.comment[0].criticname;
+			   var cnt = 0;
 			   
-			   if (myid == commid){
-				   $(".loginchk").html("<input type='button' class='loginchk btn btn-default' value='이미 평가하셨습니다'>");
+			   
+			   for(var i = 0; i<(result.comment.length); i++){
+				   commid = result.comment[i].criticname;
+					   if(myid == commid){
+						   cnt++;
+			   			}
+			   } 
+			   if (cnt == 0){
+				   $(".modal-footer").html("<input type='submit' class='loginchk btn btn-default' value='평가하기'>"
+						   +"<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>"
+				   );
 			   } else {
-				   console.log("no")
+				   $(".modal-footer").html("<input type='button' class='loginchk btn btn-default' value='이미 평가하셨습니다'>"
+						   +"<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>"
+				   );
 			   }
-			   
+			  }
 			   
 		  }); 
 		});
