@@ -5,25 +5,42 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head>
 	
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
 <!-- 부가적인 테마 -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
+<script src="https://code.jquery.com/jquery-2.2.1.min.js" ></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
     
 	
 	
-	 <script src="https://code.jquery.com/jquery-2.2.1.min.js" >
-    
+
+ <script>
     $('#myCollapsible').collapse({
   toggle: false
-})
+});
+    
 </script>
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <script>
-   
-    </script>
+<script>
+		function showKeyCode(event, obj) {
+			event = event || window.event;
+			var keyID = (event.which) ? event.which : event.keyCode;
+			
+			if( ( keyID >=48 && keyID <= 57 ) || ( keyID >=96 && keyID <= 105 ) )
+			{
+				
+				return;
+			}
+			else
+			{
+				return false;
+			}	
+		}
+</script>
+
+ 
+
 	
     <style>
 		html{
@@ -139,7 +156,40 @@
        }
 			
         </style>
- 
+ <script>
+		function showKeyCode(event) {
+			event = event || window.event;
+			var keyID = (event.which) ? event.which : event.keyCode;
+			if( ( keyID >=48 && keyID <= 57 ) || ( keyID >=96 && keyID <= 105 ) )
+			{
+				return;
+			}
+			else
+			{
+				return false;
+			}
+		}
+	</script>
+<script>
+$(document).ready(function(){
+	$(".iddupe").on("click", function(){
+		var id = $(".id").val();
+		$.ajax({
+			  url:"iddupe", 
+			  type:"get", 
+			  data:{"id":id}
+		   }).done(function(result){
+			   var id = JSON.parse(result); // 가져온 데이터를 JSON 형식으로 형변환하여 result 변수에 담기
+			   if(id == null){
+				   alert("사용 가능한 아이디입니다");
+			   } else {
+				   alert("이미 등록된 아이디입니다.");
+			   }
+			   
+		   });
+	});
+});
+</script>
 </head>
 <body>
     <div class="container-fluid">
@@ -155,7 +205,8 @@
         <hr>
 
      <div  class="col-md-12">
-        <h4 style="float: right;margin-right: 30%">아이디<input type="text" name="id" placeholder="아이디" ></h4>
+        <h4 style="float: right;margin-right: 30%">아이디<input class="id" type="text" name="id" placeholder="아이디" style="text-transform:lowercase"></h4>
+        <input type="button" class="iddupe" value="중복체크">
         
           </div>
          <div  class="col-md-12">
@@ -172,12 +223,13 @@
      </div>
         
       <div  class="col-md-12">
-        <h4 style="float: right;margin-right: 30%">휴대전화<input type="text" name="phone" placeholder="휴대전화번호"></h4>
-     
-
+        <h4 style="float: right;margin-right: 30%">휴대전화
+        <input type="text" name="phone1" maxlength="3" onkeydown="return showKeyCode(event)">-
+        <input type="text" name="phone2" maxlength="4" onkeydown="return showKeyCode(event)">-
+        <input type="text" name="phone3" maxlength="4" onkeydown="return showKeyCode(event)"></h4>
      </div>         
     <div  class="col-md-12">
-        <h4 style="float: right;margin-right: 30%">이메일<input type="text" name="email" placeholder="이메일"></h4>
+        <h4 style="float: right;margin-right: 30%">이메일<input type="email" name="email" placeholder="이메일"></h4>
     </div>
         <hr>
         <div  class="col-md-12">

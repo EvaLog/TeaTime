@@ -107,7 +107,7 @@ $(document).ready(function(){
 			  type:"get", 
 			  data:{"no":no}
 		   }).done(function(result){
-			   
+			   console.log(result)
 			   var max = result.comment.length-1;
 			   comments = result.comment[max];
 			   $(".commentshow").html("<p>추천인 : "+comments.criticname+"</p>"
@@ -199,6 +199,7 @@ $(document).ready(function(){
 			data: {"start":start, "viewrow":viewrow}
 		}).done(function(d){ // 비동기식 데이터 가져오기
 			var result = JSON.parse(d); // 가져온 데이터를 JSON 형식으로 형변환하여 result 변수에 담기
+			console.log(result)
 			dataSource = result.data // JSON으로 받은 데이터를 사용하기 위하여 전역변수인 data에 값으로 넣기
 			totCnt = result.totCnt.tot;
 			/* console.log(dataSource); */

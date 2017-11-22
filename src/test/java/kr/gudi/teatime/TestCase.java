@@ -114,8 +114,6 @@ public class TestCase {
 	         public void handle(MvcResult arg0) throws Exception {
 	            ModelAndView mav = arg0.getModelAndView();
 	            
-	           
-	            
 	            HttpServletRequest request = arg0.getRequest();
 	            HashMap<String, Object> param = HttpUtil.getParameterMap(request);
 	            System.out.println(param);
@@ -142,9 +140,6 @@ public class TestCase {
 	         @Override
 	         public void handle(MvcResult arg0) throws Exception {
 	            ModelAndView mav = arg0.getModelAndView();
-	            
-	           
-	            
 	            HttpServletRequest request = arg0.getRequest();
 	            HashMap<String, Object> param = HttpUtil.getParameterMap(request);
 	            System.out.println(param);

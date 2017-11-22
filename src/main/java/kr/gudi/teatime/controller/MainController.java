@@ -54,6 +54,24 @@ public class MainController {
 		return mav;
 	}
 	
+	@RequestMapping("/iddupe")
+	public ModelAndView iddupe(ModelAndView mav, HttpServletRequest req){
+		try {
+			req.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		HashMap<String, Object> param = new HashMap<String, Object>();
+		param.put("id", req.getParameter("id"));
+
+		
+		JSONObject jsonObject = new JSONObject();
+		jsonObject = JSONObject.fromObject(JSONSerializer.toJSON(tsi.signinchk(param)));
+		mav.addObject("message", jsonObject.toString());
+		mav.setViewName("json");
+		return mav;
+	}
 	
 	@RequestMapping("/Success")
 	public ModelAndView Success(ModelAndView mav, HttpServletRequest req, HttpServletResponse resp){
@@ -66,7 +84,8 @@ public class MainController {
 		
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		HashMap<String, Object> iddupe = new  HashMap<String, Object>();
-				
+		
+		
 		iddupe = tsi.signinchk(param);
 		
 		
@@ -79,11 +98,13 @@ public class MainController {
 			mav.setViewName("signin/pwnotsame");
 			}else if(param.get("name").equals("")){
 			mav.setViewName("signin/needname");
-			} else if(param.get("phone").equals("")){
+			} else if(param.get("phone1").equals("") || param.get("phone2").equals("") || param.get("phone3").equals("")){
 			mav.setViewName("signin/needphone");
 			}else if(param.get("email").equals("")){
 			mav.setViewName("signin/needemail");
 			}else {
+				String phone = param.get("phone1").toString() + "-" + param.get("phone2").toString() + "-" + param.get("phone3").toString();
+				param.put("phone", phone);
 				tsi.signin(param);
 				HttpUtil.sendResponceToJson(resp, map);
 			
