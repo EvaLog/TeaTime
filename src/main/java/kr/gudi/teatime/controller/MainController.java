@@ -84,9 +84,11 @@ public class MainController {
 		
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		HashMap<String, Object> iddupe = new  HashMap<String, Object>();
-		
+		HashMap<String, Object> maildupe = new  HashMap<String, Object>();
 		
 		iddupe = tsi.signinchk(param);
+		maildupe = tsi.signinchke(param);
+		
 		
 		
 		if (iddupe == null){
@@ -102,7 +104,9 @@ public class MainController {
 			mav.setViewName("signin/needphone");
 			}else if(param.get("email").equals("")){
 			mav.setViewName("signin/needemail");
-			}else {
+			}else if(param.get("email").equals(maildupe.get("email"))){
+				mav.setViewName("signin/emaildupe");
+			}else{
 				String phone = param.get("phone1").toString() + "-" + param.get("phone2").toString() + "-" + param.get("phone3").toString();
 				param.put("phone", phone);
 				tsi.signin(param);
@@ -111,7 +115,7 @@ public class MainController {
 				mav.setViewName("Login/Success");
 			}
 			
-		} else{
+		} else {
 			mav.setViewName("signin/signindupe");
 		}
 		return mav;

@@ -15,4 +15,5 @@ public interface TestDaoInterface {
 	public List<HashMap<String, Object>> commentsel(HashMap<String, Object> param);
 	public List<HashMap<String, Object>> rateUpdate(HashMap<String, Object> param);
 	public HashMap<String, Object> SigninCheck(HashMap<String, Object> param);
+	public HashMap<String, Object> SigninChecke(HashMap<String, Object> param);
 }

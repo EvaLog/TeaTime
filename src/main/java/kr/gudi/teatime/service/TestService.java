@@ -96,6 +96,11 @@ public class TestService implements TestServiceInterface {
 		return map;
 	}
 
+	@Override
+	public HashMap<String, Object> signinchke(HashMap<String, Object> param) {
+		map =  tdi.SigninChecke(param);
+		return map;
+	}
 
 
 	

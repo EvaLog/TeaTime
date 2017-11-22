@@ -23,4 +23,6 @@ public interface TestServiceInterface {
 	public HashMap<String, Object> rateUpdate(HashMap<String, Object> param);
 	
 	public HashMap<String, Object> signinchk(HashMap<String, Object> param);
+
+	public HashMap<String, Object> signinchke(HashMap<String, Object> param);
 }

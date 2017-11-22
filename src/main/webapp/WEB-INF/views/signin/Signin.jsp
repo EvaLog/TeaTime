@@ -185,7 +185,6 @@ $(document).ready(function(){
 			   } else {
 				   alert("이미 등록된 아이디입니다.");
 			   }
-			   
 		   });
 	});
 });
@@ -205,8 +204,9 @@ $(document).ready(function(){
         <hr>
 
      <div  class="col-md-12">
-        <h4 style="float: right;margin-right: 30%">아이디<input class="id" type="text" name="id" placeholder="아이디" style="text-transform:lowercase"></h4>
-        <input type="button" class="iddupe" value="중복체크">
+        <h4 style="float: right;margin-right: 30%">아이디<input class="id" type="text" name="id" placeholder="아이디" style="text-transform:lowercase">
+        <input type="button" class="iddupe" value="중복체크" style="width:100px;height:40px;margin:0px;position: absolute;right:190px;top:0px;">
+		</h4>
         
           </div>
          <div  class="col-md-12">
@@ -224,9 +224,9 @@ $(document).ready(function(){
         
       <div  class="col-md-12">
         <h4 style="float: right;margin-right: 30%">휴대전화
-        <input type="text" name="phone1" maxlength="3" onkeydown="return showKeyCode(event)">-
-        <input type="text" name="phone2" maxlength="4" onkeydown="return showKeyCode(event)">-
-        <input type="text" name="phone3" maxlength="4" onkeydown="return showKeyCode(event)"></h4>
+        <input type="text" name="phone1" maxlength="3" onkeydown="return showKeyCode(event)" style="width:130px;height:40px;">-
+        <input type="text" name="phone2" maxlength="4" onkeydown="return showKeyCode(event)"style="width:120px;height:40px;margin:0px;">-
+        <input type="text" name="phone3" maxlength="4" onkeydown="return showKeyCode(event)"style="width:120px;height:40px;margin:0px;"></h4>
      </div>         
     <div  class="col-md-12">
         <h4 style="float: right;margin-right: 30%">이메일<input type="email" name="email" placeholder="이메일"></h4>

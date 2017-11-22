@@ -70,6 +70,11 @@ public class TestDao implements TestDaoInterface {
 		return session.selectOne("sql.signinchk", param);
 	}
 
+	@Override
+	public HashMap<String, Object> SigninChecke(HashMap<String, Object> param) {
+		return session.selectOne("sql.signinchke", param);
+	}
+
 
 	
 

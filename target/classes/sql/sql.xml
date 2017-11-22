@@ -11,6 +11,10 @@
 		select id from profile where id=#{id}
 	</select>
 	
+	<select id="signinchke" parameterType="hashmap" resultType="hashmap">
+		select email from profile where email=#{email}
+	</select>
+	
 	<select id="loginSearch" parameterType="hashmap" resultType="hashmap">
 		select id from profile where email=#{email} and phone=#{phone}
 	</select>
