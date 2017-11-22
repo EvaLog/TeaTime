@@ -226,7 +226,6 @@ public class MainController {
 			update.put("rate", newrate);
 			update.put("no", param.get("tea_no"));
 			update = tsi.rateUpdate(update);
-			tsi.commtrig(param);
 		}
 		HttpUtil.sendResponceToJson(resp, map);
 	}

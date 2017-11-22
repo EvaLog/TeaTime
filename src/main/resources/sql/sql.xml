@@ -54,9 +54,4 @@
 	<update id="rateUpdate" parameterType="hashmap">
 		update tea set rate=#{rate} where no = #{no}
 	</update>
-	
-	<update id="commented" parameterType="hashmap">
-		update profile set commtrig="Y" where id = #{criticname}
-	</update>
-	
 </mapper>

@@ -102,11 +102,6 @@ public class TestService implements TestServiceInterface {
 		return map;
 	}
 
-	@Override
-	public HashMap<String, Object> commtrig(HashMap<String, Object> param) {
-		map =  tdi.commtrig(param);
-		return map;
-	}
 
 
 	
