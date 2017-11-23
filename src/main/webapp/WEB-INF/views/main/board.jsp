@@ -42,7 +42,12 @@ $(document).ready(function(){
          $("#mainMB").fadeToggle(); 
         });
     
-   
+    $(".searchvalue").keypress(function(e) { 
+        if (e.keyCode == 13){
+        	searchEvent();
+        	$(".searchvalue").val("");
+        }    
+    });
     
     
     
@@ -231,15 +236,18 @@ $(document).ready(function(){
 		});	
 		
 		$(".search").click(function(){
-			location.hash = "#1";
-			search = $(".searchvalue").val();
-			initData();
-			createHtml();
-			createPaging();
+			searchEvent();
+			$(".searchvalue").val("");
 	     });
 	}
 	
-	
+	function searchEvent(){
+		location.hash = "#1";
+		search = $(".searchvalue").val();
+		initData();
+		createHtml();
+		createPaging();
+	}
 	
 	initData();
 	
@@ -388,7 +396,7 @@ if(<%=id%> != null){
         margin-bottom: 120px;
           }
            #boardright{
-            width:auto;
+           
             padding : 0px;
             position: relative;
             margin-left: 100px;
@@ -507,7 +515,9 @@ if(<%=id%> != null){
     </div>
      <div class="boardtop col-md-10">
       
-                  <div class="notice "><h3>회원님들의 인기 공차!</h3></div>
+                  <div class="notice "><h3>회원님들의 인기 공차!
+                  <input type="text" class="searchvalue" style="color : black;">
+        		<input type="button" class="search" value="검색" style="color : black;"></h3></div>
             </div>
     <div class="col-md-10">
     <div id="boardright" class="col-md-10">
@@ -525,9 +535,8 @@ if(<%=id%> != null){
         </div>
         <div class="pagenum">
         </div>
-        <div>
-        	<input type="text" class="searchvalue">
-        	<input type="button" class="search" value="검색">
+        <div class="search">
+        	
         </div>
     </body>
 </html>
