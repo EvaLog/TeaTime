@@ -83,13 +83,17 @@ public class MainController {
 		HashMap<String, Object> param = HttpUtil.getParameterMap(req);
 		
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		HashMap<String, Object> iddupe = new  HashMap<String, Object>();
-		HashMap<String, Object> maildupe = new  HashMap<String, Object>();
+		HashMap<String, Object> iddupe = new HashMap<String, Object>();
+		HashMap<String, Object> maildupe = new HashMap<String, Object>();
 		
 		iddupe = tsi.signinchk(param);
 		maildupe = tsi.signinchke(param);
 		
-		
+		System.out.println(param);
+		if(maildupe==null){
+			maildupe = new HashMap<String, Object>();
+		}
+		System.out.println(maildupe);
 		
 		if (iddupe == null){
 			if(param.get("id").equals("")){
@@ -105,7 +109,7 @@ public class MainController {
 			}else if(param.get("email").equals("")){
 			mav.setViewName("signin/needemail");
 			}else if(param.get("email").equals(maildupe.get("email"))){
-				mav.setViewName("signin/emaildupe");
+			mav.setViewName("signin/emaildupe");
 			}else{
 				String phone = param.get("phone1").toString() + "-" + param.get("phone2").toString() + "-" + param.get("phone3").toString();
 				param.put("phone", phone);
@@ -244,6 +248,7 @@ public class MainController {
 		HashMap<String, Object> param = new HashMap<String, Object>();
 		param.put("start", Integer.parseInt(req.getParameter("start")));
 		param.put("viewrow", Integer.parseInt(req.getParameter("viewrow")));
+		param.put("search", "%"+req.getParameter("search").toString()+"%");
 		// DB에서 받아 온 hashmap 데이터를 json으로 변경하여 model 값으로 넣어준다.
 		JSONObject jsonObject = new JSONObject();
 		jsonObject = JSONObject.fromObject(JSONSerializer.toJSON(tsi.teaselect(param)));

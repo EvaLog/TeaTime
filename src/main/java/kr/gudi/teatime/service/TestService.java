@@ -66,7 +66,7 @@ public class TestService implements TestServiceInterface {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("data", list);
 		
-		HashMap<String, Object> tot = tdi.totCnt();
+		HashMap<String, Object> tot = tdi.totCnt(param);
 		map.put("totCnt", tot);
 		
 		return map;

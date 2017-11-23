@@ -36,6 +36,7 @@
 <script>
 
 $(document).ready(function(){
+	location.hash="#1";
     $("#mainMB").hide();
     $("button").click(function(){
          $("#mainMB").fadeToggle(); 
@@ -50,6 +51,7 @@ $(document).ready(function(){
 	var page = 1; //현재 페이지 값
 	var viewrow = 9; // 화면에 보여질 행 갯수
 	var totCnt = 0; //데이터 전체 갯수
+	var search = "";
 	
 	function createHtml(){ // ul 태그 속에 li태그 넣기 위한 함수
 		$(".borderrow").empty(); // ul태그의 자식태그 초기화 필요
@@ -70,7 +72,7 @@ $(document).ready(function(){
 						+"<div class='modal-body'>"
 						+"<p>설명: "+dataSource[i].teadesc+" </p>"
 	        			+"<p>가격 : "+dataSource[i].teaprice+"원 </p>"
-	        			+"추천평 : <input type='text' name='comment'><br>"
+	        			+"추천평 : <input type='text' name='comment' maxlength='35'><br>"
 	        			+"<div class='commentrate'></div>"
 	            		+"별점주기 :  "
 	            		+"★1 <input type='radio' name='rate' value=1>\n\n"
@@ -206,6 +208,7 @@ $(document).ready(function(){
 	
 	function initData(){ // DB에서 데이터 가져오기 위한 함수
 		var hash = location.hash; //a 태그의 이벤트로 발생한 hash 값을 가져온다.
+		console.log(hash);
 		if(hash != ""){ //hash값이 있을 경우 page변수의 값으로 사용한다.
 			page = hash.substr(1, hash.length);
 		}
@@ -213,10 +216,11 @@ $(document).ready(function(){
 		var end = (viewrow * page); // 10 * 2 = 20
 		var start = (end - viewrow); // 20 - 10 = 10
 		
+		
 		$.ajax({
 			type:"post",
 			url:"/teatime/listData",
-			data: {"start":start, "viewrow":viewrow}
+			data: {"start":start, "viewrow":viewrow , "search":search}
 		}).done(function(d){ // 비동기식 데이터 가져오기
 			var result = JSON.parse(d); // 가져온 데이터를 JSON 형식으로 형변환하여 result 변수에 담기
 			dataSource = result.data // JSON으로 받은 데이터를 사용하기 위하여 전역변수인 data에 값으로 넣기
@@ -224,12 +228,19 @@ $(document).ready(function(){
 			
 			createHtml(); //화면에 표현하기 위하여 함수 호출
 			createPaging(); //페이지 링크 표현학 위한 함수 호출
-			
-			$(".boardcell").click(function(){
-				
-		     });
 		});	
+		
+		$(".search").click(function(){
+			location.hash = "#1";
+			search = $(".searchvalue").val();
+			initData();
+			createHtml();
+			createPaging();
+	     });
 	}
+	
+	
+	
 	initData();
 	
 	 
@@ -513,6 +524,10 @@ if(<%=id%> != null){
         </div>
         </div>
         <div class="pagenum">
+        </div>
+        <div>
+        	<input type="text" class="searchvalue">
+        	<input type="button" class="search" value="검색">
         </div>
     </body>
 </html>

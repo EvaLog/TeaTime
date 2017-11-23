@@ -46,8 +46,8 @@ public class TestDao implements TestDaoInterface {
 	}
 
 	@Override
-	public HashMap<String, Object> totCnt() {
-		return session.selectOne("sql.tot");
+	public HashMap<String, Object> totCnt(HashMap<String, Object> param) {
+		return session.selectOne("sql.tot", param);
 	}
 	
 	@Override
@@ -75,6 +75,9 @@ public class TestDao implements TestDaoInterface {
 		return session.selectOne("sql.signinchke", param);
 	}
 
+	
+}
+
 
 
 
@@ -84,4 +87,3 @@ public class TestDao implements TestDaoInterface {
 	public int PwUpdate(HashMap<String, Object> param) {
 		return session.update("sql.PwUpdate", param);
 	}*/ //비밀번호 초기화용
-}
