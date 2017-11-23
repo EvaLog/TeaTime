@@ -187,6 +187,7 @@ $(document).ready(function(){
 			   }
 		   });
 	});
+	$("#email").attr("pattern", "[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.]+[a-zA-Z]+[.]*[a-zA-Z]*");
 });
 </script>
 </head>
@@ -214,7 +215,7 @@ $(document).ready(function(){
         
           </div>
         <div  class="col-md-12">
-       <h4 style="float: right;margin-right: 30%">비밀번호 확인<input type="password" name="pwchk" placeholder="비밀번호 확인"></h4>
+       <h4 style="float: right;margin-right: 30%">비밀번호 확인<input type="password" name="pwchk" placeholder="비밀번호 확인" maxlength="50"></h4>
              
           </div>
         <hr>
@@ -229,7 +230,7 @@ $(document).ready(function(){
         <input type="text" name="phone3" maxlength="4" onkeydown="return showKeyCode(event)"style="width:120px;height:40px;margin:0px;"></h4>
      </div>         
     <div  class="col-md-12">
-        <h4 style="float: right;margin-right: 30%">이메일<input type="email" name="email" placeholder="이메일"></h4>
+        <h4 style="float: right;margin-right: 30%">이메일<input type="email" name="email" placeholder="이메일" id="email"></h4>
     </div>
         <hr>
         <div  class="col-md-12">

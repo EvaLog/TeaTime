@@ -89,7 +89,7 @@ public class MainController {
 		iddupe = tsi.signinchk(param);
 		maildupe = tsi.signinchke(param);
 		
-<<<<<<< HEAD
+
 		System.out.println(param);
 		if(maildupe==null){
 			maildupe = new HashMap<String, Object>();
