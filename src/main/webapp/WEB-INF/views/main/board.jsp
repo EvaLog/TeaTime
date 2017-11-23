@@ -70,7 +70,7 @@ $(document).ready(function(){
 						+"<div class='modal-body'>"
 						+"<p>설명: "+dataSource[i].teadesc+" </p>"
 	        			+"<p>가격 : "+dataSource[i].teaprice+"원 </p>"
-	        			+"추천평 : <input type='text' name='comment'><br>"
+	        			+"추천평 : <input type='text' name='comment' maxlength='35'><br>"
 	        			+"<div class='commentrate'></div>"
 	            		+"별점주기 :  "
 	            		+"★1 <input type='radio' name='rate' value=1>\n\n"
