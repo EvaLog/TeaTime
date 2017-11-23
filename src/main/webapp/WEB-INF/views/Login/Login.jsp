@@ -120,7 +120,7 @@
 <div class="container-fluid">
         <div class="row">
     <div id="full">
-    <form action="Login" method="post">
+    <form action="Login2" method="post">
            <div class="col-md-12" style="margin-bottom: 10%;margin-top: 10%;padding-left: 10%">
       <div class="col-md-1"></div>
            <div class="col-md-1"></div>

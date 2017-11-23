@@ -39,18 +39,30 @@ public class MainController {
 	}
 	
 	@RequestMapping("/Login")
-	public ModelAndView Login(ModelAndView mav, HttpServletRequest req, HttpServletResponse resp){
+	public ModelAndView Login(ModelAndView mav){
+		mav.setViewName("Login/Login");
+		return mav;
+	}
+	
+	@RequestMapping("/Login2")
+	public ModelAndView Login2(ModelAndView mav, HttpServletRequest req, HttpServletResponse resp){
 		HashMap<String, Object> param = HttpUtil.getParameterMap(req);
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("Login", tsi.LoginCheck(param));
-		HttpUtil.sendResponceToJson(resp, map);
-		if(map.get("Login") == (null)){
-			mav.setViewName("Login/Login");
+		HashMap<String, Object> map2 = new HashMap<String, Object>();
+		map = tsi.LoginCheck(param);
+		map2 = tsi.signinchk(param);
+		
+		
+		if(map == null){
+			if(map2 == null){
+				mav.setViewName("Login/needid");
+			} else {
+				mav.setViewName("Login/needpw");
+			}
 		} else {
 			mav.addObject("id", tsi.LoginCheck(param).get("id"));
 			mav.setViewName("Login/LoginSuccess");
 		}
-		
 		return mav;
 	}
 	
