@@ -89,12 +89,17 @@ public class MainController {
 		iddupe = tsi.signinchk(param);
 		maildupe = tsi.signinchke(param);
 		
+<<<<<<< HEAD
 		System.out.println(param);
 		if(maildupe==null){
 			maildupe = new HashMap<String, Object>();
 		}
 		System.out.println(maildupe);
+		if(maildupe == null){
+			maildupe =  new  HashMap<String, Object>();
+		}
 		
+
 		if (iddupe == null){
 			if(param.get("id").equals("")){
 			mav.setViewName("signin/needid");

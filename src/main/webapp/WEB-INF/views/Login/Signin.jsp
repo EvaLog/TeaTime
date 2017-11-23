@@ -155,7 +155,7 @@
         
           </div>
          <div  class="col-md-12">
-        <p style="float: right;margin-right: 30%">비밀번호<input type="password" name="pw" placeholder="비밀번호"></p>
+        <p style="float: right;margin-right: 30%">비밀번호<input type="password" name="pw" placeholder="비밀번호" maxlength="20"></p>
         
           </div>
         <div  class="col-md-12">
