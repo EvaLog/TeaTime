@@ -205,7 +205,7 @@ $(document).ready(function(){
         <hr>
 
      <div  class="col-md-12">
-        <h4 style="float: right;margin-right: 30%">아이디<input class="id" type="text" name="id" placeholder="아이디" style="text-transform:lowercase">
+        <h4 style="float: right;margin-right: 30%">아이디<input class="id" type="text" name="id" placeholder="아이디" style="text-transform:lowercase"maxlength="20">
         <input type="button" class="iddupe" value="중복체크" style="width:100px;height:40px;margin:0px;position: absolute;right:190px;top:0px;">
 		</h4>
         
