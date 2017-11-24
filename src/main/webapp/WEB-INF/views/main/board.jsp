@@ -169,13 +169,15 @@ $(document).ready(function(){
 						   +"<button type='button' class='closebtns btn btn-default' data-dismiss='modal'>Close</button>"
 				   );
 			   }
-			   $(".closebtns, .close").on("click",function(){
-			    	$(".commentinput").val("");
-			    });
+			  
 			  }
 			  
 			   
-		  }); 
+		  }).done(function(){
+			  $(".closebtns, .close").on("click",function(){
+			    	$(".commentinput").val("");
+			    });
+		  });
 		   
 		});
 		

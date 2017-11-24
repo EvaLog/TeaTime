@@ -84,7 +84,8 @@ $(document).ready(function(){
               display: none;
           }
     #story-vid-s{
-        display: none;
+       	width:100%;
+       	 height:250px;
     }
      #panel, #flip {
     padding: 5px;
@@ -300,10 +301,11 @@ $(document).ready(function(){
 
  #mainmb{
            display:none;} 
-
-    #story-vid{
-        display: none;
+             #story-vid-s{
+       	width:100%;
+       	height:300px;
     }
+    
   .slidenim {visibility:hidden;}
   .slide {
       animation-name: slide;
@@ -376,7 +378,7 @@ $(document).ready(function(){
               color: white;
           }
           #story {
-              padding: 100px;
+              padding:0px;
           }
           .point {
               color: firebrick;
@@ -605,9 +607,9 @@ $(document).ready(function(){
         </div>  
     </div>
         <div id="story" class="col-md-5 col-xs-5">
-        <iframe id="story-vid" src="https://www.youtube.com/embed/AYMpuJofWJw?autoplay=1&rel=0&loop=1" width="350" height="250"> 
+        
         </iframe> 
-        <iframe id="story-vid-s" src="https://www.youtube.com/embed/AYMpuJofWJw?autoplay=1&rel=0&loop=1" width="600" height="400"> 
+        <iframe id="story-vid-s" src="https://www.youtube.com/embed/AYMpuJofWJw?autoplay=1&rel=0&loop=1"> 
         </iframe> 
         </div>
             <div id="story" class="col-md-7 col-xs-7">
