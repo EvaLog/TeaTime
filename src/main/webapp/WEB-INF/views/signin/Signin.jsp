@@ -23,13 +23,11 @@
     
 </script>
 <script>
-		function showKeyCode(event, obj) {
+		function showKeyCode(event) {
 			event = event || window.event;
 			var keyID = (event.which) ? event.which : event.keyCode;
-			
-			if( ( keyID >=48 && keyID <= 57 ) || ( keyID >=96 && keyID <= 105 ) )
+			if(KeyID == 37 || KeyID == 39 || ( keyID >=48 && keyID <= 57 ) || ( keyID >=96 && keyID <= 105 ))
 			{
-				
 				return;
 			}
 			else
@@ -159,8 +157,9 @@
  <script>
 		function showKeyCode(event) {
 			event = event || window.event;
+			
 			var keyID = (event.which) ? event.which : event.keyCode;
-			if( ( keyID >=48 && keyID <= 57 ) || ( keyID >=96 && keyID <= 105 ) )
+			if( ( keyID >=48 && keyID <= 57 ) || ( keyID >=96 && keyID <= 105 ) || keyID == 37 || keyID == 39 || keyID == 8 || keyID == 46 )
 			{
 				return;
 			}

@@ -77,7 +77,7 @@ $(document).ready(function(){
 						+"<div class='modal-body'>"
 						+"<p>설명: "+dataSource[i].teadesc+" </p>"
 	        			+"<p>가격 : "+dataSource[i].teaprice+"원 </p>"
-	        			+"추천평 : <input type='text' name='comment' maxlength='35'><br>"
+	        			+"추천평 : <input type='text' name='comment' class='commentinput' maxlength='35'><br>"
 	        			+"<div class='commentrate'></div>"
 	            		+"별점주기 :  "
 	            		+"★1 <input type='radio' name='rate' value=1>\n\n"
@@ -94,12 +94,13 @@ $(document).ready(function(){
 			  	+"</div>"
 			+"</div>"
 			);
+			
 		}
 		
 		
 		
 		
-		$( ".boardcell" ).on( "click", function( event ) {
+		$( ".boardcell" ).on( "click", function(event) {
 		  event.preventDefault();
 		  var index = $( ".boardcell" ).index(this);
 		  var no = $(".tea_no").eq(index).val();
@@ -114,7 +115,7 @@ $(document).ready(function(){
 			   if(max == -1){
 				   $(".commentshow").html("");
 				   $(".modal-footer").html("<input type='submit' class='loginchk btn btn-default' value='평가하기'>"
-						   +"<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>"
+						 				   +"<button type='button' class='closebtns btn btn-default' data-dismiss='modal'>Close</button>"
 				   );
 			   } else {
 			   $(".commentshow").html("<p>추천인 : "+comments.criticname+"</p>"
@@ -161,17 +162,24 @@ $(document).ready(function(){
 			   } 
 			   if (cnt == 0){
 				   $(".modal-footer").html("<input type='submit' class='loginchk btn btn-default' value='평가하기'>"
-						   +"<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>"
+						   +"<button type='button' class='closebtns btn btn-default' data-dismiss='modal'>Close</button>"
 				   );
 			   } else {
 				   $(".modal-footer").html("<input type='button' class='loginchk btn btn-default' value='이미 평가하셨습니다'>"
-						   +"<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>"
+						   +"<button type='button' class='closebtns btn btn-default' data-dismiss='modal'>Close</button>"
 				   );
 			   }
+			   $(".closebtns, .close").on("click",function(){
+			    	$(".commentinput").val("");
+			    });
 			  }
+			  
 			   
 		  }); 
+		   
 		});
+		
+		
 		
 		$( "form" ).on( "submit", function( event ) {
 			  event.preventDefault();
@@ -188,7 +196,6 @@ $(document).ready(function(){
 				 }else{
 					 alert("입력이 잘못되었습니다.");
 				 }
-				 $(".modal").modal("hide");
 			  });
 			});
 		
@@ -213,7 +220,6 @@ $(document).ready(function(){
 	
 	function initData(){ // DB에서 데이터 가져오기 위한 함수
 		var hash = location.hash; //a 태그의 이벤트로 발생한 hash 값을 가져온다.
-		console.log(hash);
 		if(hash != ""){ //hash값이 있을 경우 page변수의 값으로 사용한다.
 			page = hash.substr(1, hash.length);
 		}
@@ -233,6 +239,7 @@ $(document).ready(function(){
 			
 			createHtml(); //화면에 표현하기 위하여 함수 호출
 			createPaging(); //페이지 링크 표현학 위한 함수 호출
+			
 		});	
 		
 		$(".search").click(function(){
@@ -240,6 +247,8 @@ $(document).ready(function(){
 			$(".searchvalue").val("");
 	     });
 	}
+	
+	
 	
 	function searchEvent(){
 		location.hash = "#1";
