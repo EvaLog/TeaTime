@@ -36,18 +36,12 @@
 <script>
 
 $(document).ready(function(){
-	location.hash="#1";
     $("#mainMB").hide();
     $("button").click(function(){
          $("#mainMB").fadeToggle(); 
         });
     
-    $(".searchvalue").keypress(function(e) { 
-        if (e.keyCode == 13){
-        	searchEvent();
-        	$(".searchvalue").val("");
-        }    
-    });
+   
     
     
     
@@ -56,7 +50,6 @@ $(document).ready(function(){
 	var page = 1; //현재 페이지 값
 	var viewrow = 9; // 화면에 보여질 행 갯수
 	var totCnt = 0; //데이터 전체 갯수
-	var search = "";
 	
 	function createHtml(){ // ul 태그 속에 li태그 넣기 위한 함수
 		$(".borderrow").empty(); // ul태그의 자식태그 초기화 필요
@@ -77,7 +70,7 @@ $(document).ready(function(){
 						+"<div class='modal-body'>"
 						+"<p>설명: "+dataSource[i].teadesc+" </p>"
 	        			+"<p>가격 : "+dataSource[i].teaprice+"원 </p>"
-	        			+"추천평 : <input type='text' name='comment' class='commentinput' maxlength='35'><br>"
+	        			+"추천평 : <input type='text' name='comment'><br>"
 	        			+"<div class='commentrate'></div>"
 	            		+"별점주기 :  "
 	            		+"★1 <input type='radio' name='rate' value=1>\n\n"
@@ -94,13 +87,12 @@ $(document).ready(function(){
 			  	+"</div>"
 			+"</div>"
 			);
-			
 		}
 		
 		
 		
 		
-		$( ".boardcell" ).on( "click", function(event) {
+		$( ".boardcell" ).on( "click", function( event ) {
 		  event.preventDefault();
 		  var index = $( ".boardcell" ).index(this);
 		  var no = $(".tea_no").eq(index).val();
@@ -115,7 +107,7 @@ $(document).ready(function(){
 			   if(max == -1){
 				   $(".commentshow").html("");
 				   $(".modal-footer").html("<input type='submit' class='loginchk btn btn-default' value='평가하기'>"
-						 				   +"<button type='button' class='closebtns btn btn-default' data-dismiss='modal'>Close</button>"
+						   +"<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>"
 				   );
 			   } else {
 			   $(".commentshow").html("<p>추천인 : "+comments.criticname+"</p>"
@@ -162,26 +154,17 @@ $(document).ready(function(){
 			   } 
 			   if (cnt == 0){
 				   $(".modal-footer").html("<input type='submit' class='loginchk btn btn-default' value='평가하기'>"
-						   +"<button type='button' class='closebtns btn btn-default' data-dismiss='modal'>Close</button>"
+						   +"<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>"
 				   );
 			   } else {
 				   $(".modal-footer").html("<input type='button' class='loginchk btn btn-default' value='이미 평가하셨습니다'>"
-						   +"<button type='button' class='closebtns btn btn-default' data-dismiss='modal'>Close</button>"
+						   +"<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>"
 				   );
 			   }
-			  
 			  }
-			  
 			   
-		  }).done(function(){
-			  $(".closebtns, .close").on("click",function(){
-			    	$(".commentinput").val("");
-			    });
-		  });
-		   
+		  }); 
 		});
-		
-		
 		
 		$( "form" ).on( "submit", function( event ) {
 			  event.preventDefault();
@@ -198,6 +181,7 @@ $(document).ready(function(){
 				 }else{
 					 alert("입력이 잘못되었습니다.");
 				 }
+				 $(".modal").modal("hide");
 			  });
 			});
 		
@@ -229,11 +213,10 @@ $(document).ready(function(){
 		var end = (viewrow * page); // 10 * 2 = 20
 		var start = (end - viewrow); // 20 - 10 = 10
 		
-		
 		$.ajax({
 			type:"post",
 			url:"/teatime/listData",
-			data: {"start":start, "viewrow":viewrow , "search":search}
+			data: {"start":start, "viewrow":viewrow}
 		}).done(function(d){ // 비동기식 데이터 가져오기
 			var result = JSON.parse(d); // 가져온 데이터를 JSON 형식으로 형변환하여 result 변수에 담기
 			dataSource = result.data // JSON으로 받은 데이터를 사용하기 위하여 전역변수인 data에 값으로 넣기
@@ -242,24 +225,11 @@ $(document).ready(function(){
 			createHtml(); //화면에 표현하기 위하여 함수 호출
 			createPaging(); //페이지 링크 표현학 위한 함수 호출
 			
+			$(".boardcell").click(function(){
+				
+		     });
 		});	
-		
-		$(".search").click(function(){
-			searchEvent();
-			$(".searchvalue").val("");
-	     });
 	}
-	
-	
-	
-	function searchEvent(){
-		location.hash = "#1";
-		search = $(".searchvalue").val();
-		initData();
-		createHtml();
-		createPaging();
-	}
-	
 	initData();
 	
 	 
@@ -407,7 +377,7 @@ if(<%=id%> != null){
         margin-bottom: 120px;
           }
            #boardright{
-           
+            width:auto;
             padding : 0px;
             position: relative;
             margin-left: 100px;
@@ -526,9 +496,7 @@ if(<%=id%> != null){
     </div>
      <div class="boardtop col-md-10">
       
-                  <div class="notice "><h3>회원님들의 인기 공차!
-                  <input type="text" class="searchvalue" style="color : black;">
-        		<input type="button" class="search" value="검색" style="color : black;"></h3></div>
+                  <div class="notice "><h3>회원님들의 인기 공차!</h3></div>
             </div>
     <div class="col-md-10">
     <div id="boardright" class="col-md-10">
@@ -545,9 +513,6 @@ if(<%=id%> != null){
         </div>
         </div>
         <div class="pagenum">
-        </div>
-        <div class="search">
-        	
         </div>
     </body>
 </html>

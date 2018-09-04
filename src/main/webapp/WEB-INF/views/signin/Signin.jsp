@@ -23,11 +23,13 @@
     
 </script>
 <script>
-		function showKeyCode(event) {
+		function showKeyCode(event, obj) {
 			event = event || window.event;
 			var keyID = (event.which) ? event.which : event.keyCode;
-			if(KeyID == 37 || KeyID == 39 || ( keyID >=48 && keyID <= 57 ) || ( keyID >=96 && keyID <= 105 ))
+			
+			if( ( keyID >=48 && keyID <= 57 ) || ( keyID >=96 && keyID <= 105 ) )
 			{
+				
 				return;
 			}
 			else
@@ -157,9 +159,8 @@
  <script>
 		function showKeyCode(event) {
 			event = event || window.event;
-			
 			var keyID = (event.which) ? event.which : event.keyCode;
-			if( ( keyID >=48 && keyID <= 57 ) || ( keyID >=96 && keyID <= 105 ) || keyID == 37 || keyID == 39 || keyID == 8 || keyID == 46 )
+			if( ( keyID >=48 && keyID <= 57 ) || ( keyID >=96 && keyID <= 105 ) )
 			{
 				return;
 			}
@@ -186,7 +187,6 @@ $(document).ready(function(){
 			   }
 		   });
 	});
-	$("#email").attr("pattern", "[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.]+[a-zA-Z]+[.]*[a-zA-Z]*");
 });
 </script>
 </head>
@@ -204,17 +204,17 @@ $(document).ready(function(){
         <hr>
 
      <div  class="col-md-12">
-        <h4 style="float: right;margin-right: 30%">아이디<input class="id" type="text" name="id" placeholder="아이디" style="text-transform:lowercase"maxlength="20">
+        <h4 style="float: right;margin-right: 30%">아이디<input class="id" type="text" name="id" placeholder="아이디" style="text-transform:lowercase">
         <input type="button" class="iddupe" value="중복체크" style="width:100px;height:40px;margin:0px;position: absolute;right:190px;top:0px;">
 		</h4>
         
           </div>
          <div  class="col-md-12">
-        <h4 style="float: right;margin-right: 30%">비밀번호<input type="password" name="pw" placeholder="비밀번호" maxlength="50"></h4>
+        <h4 style="float: right;margin-right: 30%">비밀번호<input type="password" name="pw" placeholder="비밀번호"></h4>
         
           </div>
         <div  class="col-md-12">
-       <h4 style="float: right;margin-right: 30%">비밀번호 확인<input type="password" name="pwchk" placeholder="비밀번호 확인" maxlength="50"></h4>
+       <h4 style="float: right;margin-right: 30%">비밀번호 확인<input type="password" name="pwchk" placeholder="비밀번호 확인"></h4>
              
           </div>
         <hr>
@@ -229,7 +229,7 @@ $(document).ready(function(){
         <input type="text" name="phone3" maxlength="4" onkeydown="return showKeyCode(event)"style="width:120px;height:40px;margin:0px;"></h4>
      </div>         
     <div  class="col-md-12">
-        <h4 style="float: right;margin-right: 30%">이메일<input type="email" name="email" placeholder="이메일" id="email"></h4>
+        <h4 style="float: right;margin-right: 30%">이메일<input type="email" name="email" placeholder="이메일"></h4>
     </div>
         <hr>
         <div  class="col-md-12">
