@@ -39,30 +39,18 @@ public class MainController {
 	}
 	
 	@RequestMapping("/Login")
-	public ModelAndView Login(ModelAndView mav){
-		mav.setViewName("Login/Login");
-		return mav;
-	}
-	
-	@RequestMapping("/Login2")
-	public ModelAndView Login2(ModelAndView mav, HttpServletRequest req, HttpServletResponse resp){
+	public ModelAndView Login(ModelAndView mav, HttpServletRequest req, HttpServletResponse resp){
 		HashMap<String, Object> param = HttpUtil.getParameterMap(req);
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		HashMap<String, Object> map2 = new HashMap<String, Object>();
-		map = tsi.LoginCheck(param);
-		map2 = tsi.signinchk(param);
-		
-		
-		if(map == null){
-			if(map2 == null){
-				mav.setViewName("Login/needid");
-			} else {
-				mav.setViewName("Login/needpw");
-			}
+		map.put("Login", tsi.LoginCheck(param));
+		HttpUtil.sendResponceToJson(resp, map);
+		if(map.get("Login") == (null)){
+			mav.setViewName("Login/Login");
 		} else {
 			mav.addObject("id", tsi.LoginCheck(param).get("id"));
 			mav.setViewName("Login/LoginSuccess");
 		}
+		
 		return mav;
 	}
 	
@@ -95,20 +83,14 @@ public class MainController {
 		HashMap<String, Object> param = HttpUtil.getParameterMap(req);
 		
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		HashMap<String, Object> iddupe = new HashMap<String, Object>();
-		HashMap<String, Object> maildupe = new HashMap<String, Object>();
+		HashMap<String, Object> iddupe = new  HashMap<String, Object>();
+		HashMap<String, Object> maildupe = new  HashMap<String, Object>();
 		
 		iddupe = tsi.signinchk(param);
 		maildupe = tsi.signinchke(param);
 		
-
-		
-		if(maildupe==null){
-			maildupe = new HashMap<String, Object>();
-		}
 		
 		
-
 		if (iddupe == null){
 			if(param.get("id").equals("")){
 			mav.setViewName("signin/needid");
@@ -123,7 +105,7 @@ public class MainController {
 			}else if(param.get("email").equals("")){
 			mav.setViewName("signin/needemail");
 			}else if(param.get("email").equals(maildupe.get("email"))){
-			mav.setViewName("signin/emaildupe");
+				mav.setViewName("signin/emaildupe");
 			}else{
 				String phone = param.get("phone1").toString() + "-" + param.get("phone2").toString() + "-" + param.get("phone3").toString();
 				param.put("phone", phone);
@@ -262,7 +244,6 @@ public class MainController {
 		HashMap<String, Object> param = new HashMap<String, Object>();
 		param.put("start", Integer.parseInt(req.getParameter("start")));
 		param.put("viewrow", Integer.parseInt(req.getParameter("viewrow")));
-		param.put("search", "%"+req.getParameter("search").toString()+"%");
 		// DB에서 받아 온 hashmap 데이터를 json으로 변경하여 model 값으로 넣어준다.
 		JSONObject jsonObject = new JSONObject();
 		jsonObject = JSONObject.fromObject(JSONSerializer.toJSON(tsi.teaselect(param)));
